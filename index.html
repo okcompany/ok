@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creative Studio - Design Digital Brands</title>
+<link rel="icon" type="image/png" href="logo/ok.png" sizes="32x32">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#007A74',
+        secondary: '#F2EDE4'
+      },
+      borderRadius: {
+        'none': '0px',
+        'sm': '4px',
+        DEFAULT: '8px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '20px',
+        '2xl': '24px',
+        '3xl': '32px',
+        'full': '9999px',
+        'button': '8px'
+      }
+    }
+  }
+};
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+body {
+    font-family: 'Inter', sans-serif;
+    color: #222222;
+    zoom: 0.85; /* Масштаб по умолчанию 85% */
+}
+.heading {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+.service-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+.portfolio-item:hover .portfolio-overlay {
+opacity: 1;
+}
+input, textarea {
+outline: none;
+}
+input:focus, textarea:focus {
+border-color: #007A74;
+}
+.custom-checkbox {
+position: relative;
+cursor: pointer;
+}
+.custom-checkbox input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+}
+.checkmark {
+position: absolute;
+top: 0;
+left: 0;
+height: 20px;
+width: 20px;
+background-color: #fff;
+border: 2px solid #ddd;
+border-radius: 4px;
+}
+.custom-checkbox input:checked ~ .checkmark {
+background-color: #007A74;
+border-color: #007A74;
+}
+.checkmark:after {
+content: "";
+position: absolute;
+display: none;
+}
+.custom-checkbox input:checked ~ .checkmark:after {
+display: block;
+}
+.custom-checkbox .checkmark:after {
+left: 6px;
+top: 2px;
+width: 5px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+</style>
+</head>
+<body class="bg-white">
+<!-- Header -->
+<header class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm z-50 border-b border-gray-100">
+  <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+    <!-- Логотип с иконкой и слоганом -->
+    <span class="flex items-center space-x-4 mb-0">
+      <img src="logo/ok.png" alt="logo" style="width:80px; height:80px; object-fit:contain; display:inline-block; vertical-align:middle;">
+      <span id="slogan" style="font-family: 'Montserrat', sans-serif; font-weight:600; font-size:18px; color:#007A74; line-height:1.2;">
+        <span 
+          data-ru="Марка, сайт, упаковка"
+          data-en="Brand, website, packaging"
+          data-de="Marke, Website, Verpackung"
+        >Marke, Website, Verpackung</span><br>
+        <span 
+          data-ru="— всё говорит на одном языке"
+          data-en="— everything speaks the same language"
+          data-de="– alles spricht dieselbe Sprache"
+        >– alles spricht dieselbe Sprache</span>
+      </span>
+    </span>
+    <nav class="hidden md:flex flex-col items-end min-w-[600px]">
+      <div class="flex items-center space-x-0">
+        <a href="#services" class="text-gray-800 hover:text-primary font-medium transition-colors w-[140px] text-left block"
+           style="padding-left:0"
+           data-ru="Услуги" data-en="Services" data-de="Leistungen">Services</a>
+        <a href="#portfolio" class="text-gray-800 hover:text-primary font-medium transition-colors w-[140px] text-left block"
+           style="padding-left:0"
+           data-ru="Портфолио" data-en="Portfolio" data-de="Portfolio">Portfolio</a>
+        <a href="#contact" class="text-gray-800 hover:text-primary font-medium transition-colors w-[140px] text-left block"
+           style="padding-left:0"
+           data-ru="Контакты" data-en="Contact" data-de="Kontakt">Contact</a>
+        <a href="#contact" class="bg-primary text-white px-6 py-2.5 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap w-[210px] text-center block ml-4"
+           data-ru="Заказать разработку" data-en="Order Development" data-de="Entwicklung anfragen">Order Development</a>
+      </div>
+      <!-- Языковые кнопки под кнопкой "Связаться" -->
+      <div class="flex justify-end w-full mt-2" id="lang-switcher">
+        <button class="lang-btn w-14 px-0 py-1 rounded text-sm border border-gray-300 hover:bg-primary hover:text-white transition-colors mx-0.5" data-lang="de">DE</button>
+        <button class="lang-btn w-14 px-0 py-1 rounded text-sm border border-gray-300 hover:bg-primary hover:text-white transition-colors mx-0.5" data-lang="en">EN</button>
+        <button class="lang-btn w-14 px-0 py-1 rounded text-sm border border-gray-300 hover:bg-primary hover:text-white transition-colors mx-0.5" data-lang="ru">RU</button>
+      </div>
+    </nav>
+    <button class="md:hidden w-10 h-10 flex items-center justify-center">
+      <i class="ri-menu-line text-xl"></i>
+    </button>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section class="relative pt-24 md:pt-0 overflow-hidden" style="background-image: url('https://via.placeholder.com/1600x900.webp?text=Background'); background-size: cover; background-position: center;">
+  <div class="absolute inset-0 bg-white/60 backdrop-blur-sm"></div>
+  <div class="container mx-auto px-6 py-20 md:py-32 relative z-10 flex flex-col md:flex-row items-center justify-between">
+    <div class="max-w-3xl">
+      <h1 id="hero-title" class="heading text-4xl md:text-5xl lg:text-6xl uppercase tracking-tight mb-6 leading-tight text-[#e53935]"
+          data-ru="МЫ СОЗДАЁМ ЦИФРОВЫЕ БРЕНДЫ"
+          data-en="WE DESIGN DIGITAL BRANDS"
+          data-de="WIR GESTALTEN DIGITALE MARKEN">
+        WE DESIGN DIGITAL BRANDS
+      </h1>
+      <p class="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl"
+         style="font-family: 'Montserrat', sans-serif; font-weight:600;"
+         data-ru="Мы создаём<br>исключительный цифровой опыт, который поднимает ваш бренд, соединяет с аудиторией и способствует росту бизнеса."
+         data-en="We craft<br>exceptional digital experiences that elevate your brand, connect with your audience, and drive business growth."
+         data-de="Wir schaffen<br>außergewöhnliche digitale Erlebnisse, die Ihre Marke stärken, Ihre Zielgruppe ansprechen und das Wachstum fördern.">
+        Мы создаём<br>исключительный цифровой опыт, который поднимает ваш бренд, соединяет с аудиторией и способствует росту бизнеса.
+      </p>
+      <!-- Кнопка презентации для RU и DE -->
+      <div id="presentation-btn-block" class="mb-8" style="display:none;">
+        <a id="presentation-btn" href="#" target="_blank" class="inline-block bg-primary text-white px-6 py-2.5 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap mt-4"
+           data-ru="Презентация"
+           data-en="Presentation"
+           data-de="Präsentation">
+          Präsentation
+        </a>
+      </div>
+    </div>
+    <div class="flex-shrink-0 flex items-center justify-end w-full md:w-auto mt-10 md:mt-0">
+      <img src="logo/heater2.webp" alt="Hero Image" style="width:576px; max-width:90vw; height:auto; object-fit:contain; display:block;">
+    </div>
+  </div>
+</section>
+<script>
+  // Показать кнопку презентации только для ru и de/en, менять название и ссылку
+  function updatePresentationBtn(lang) {
+    var block = document.getElementById('presentation-btn-block');
+    var btn = document.getElementById('presentation-btn');
+    if (!block || !btn) return;
+    if (lang === 'ru') {
+      block.style.display = '';
+      btn.href = 'logo/ru.pdf';
+      btn.textContent = btn.getAttribute('data-ru');
+    } else if (lang === 'de') {
+      block.style.display = '';
+      btn.href = 'logo/de.pdf';
+      btn.textContent = btn.getAttribute('data-de');
+    } else if (lang === 'en') {
+      block.style.display = '';
+      btn.href = 'logo/de.pdf';
+      btn.textContent = btn.getAttribute('data-en');
+    } else {
+      block.style.display = 'none';
+    }
+  }
+  // Вызвать при загрузке и при смене языка
+  document.addEventListener('DOMContentLoaded', function() {
+    var lang = localStorage.getItem('site-lang') || 'de';
+    updatePresentationBtn(lang);
+  });
+  const origSwitchLangPresentation = switchLang;
+  switchLang = function(lang) {
+    origSwitchLangPresentation(lang);
+    updatePresentationBtn(lang);
+  };
+</script>
+<!-- Featured Project Card -->
+<section class="py-20 container mx-auto px-6">
+  <div class="bg-white rounded-xl shadow-lg overflow-hidden max-w-5xl mx-auto cursor-pointer group" id="featured-project-trigger">
+    <div class="flex flex-col md:flex-row">
+      <div class="md:w-7/12 flex items-stretch">
+        <img src="logo/kw.png" alt="Featured Project" class="w-full h-64 md:h-auto object-contain min-h-[256px] bg-white pointer-events-none">
+      </div>
+      <div class="md:w-5/12 p-8 md:p-10 flex flex-col justify-center">
+        <div class="mb-4">
+          <span class="text-sm font-medium text-primary uppercase tracking-wider"
+                data-ru="Избранный проект"
+                data-en="Featured Project"
+                data-de="Ausgewähltes Projekt">Featured Project</span>
+        </div>
+        <h3 class="heading text-2xl mb-3 text-[#007A74]"
+            data-ru="Сайт Kreuztaler Werkstatt"
+            data-en="Website Kreuztaler Werkstatt"
+            data-de="Website Kreuztaler Werkstatt">Website Kreuztaler Werkstatt</h3>
+        <p class="text-gray-600 mb-6"
+           data-ru="Разработан современный, адаптивный веб-сайт для автосервиса с фокусом на удобство клиента, онлайн-запись и эффективное управление заявками через административную панель."
+           data-en="A modern, responsive website for a car service center focused on customer convenience, online booking, and efficient request management via an admin panel."
+           data-de="Eine moderne, responsive Website für eine Autowerkstatt mit Fokus auf Kundenzufriedenheit, Online-Terminbuchung und effizienter Auftragsverwaltung über ein Admin-Panel.">
+          A modern, responsive website for a car service center focused on customer convenience, online booking, and efficient request management via an admin panel.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Модальное окно Featured Project -->
+<div id="featured-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
+  <div class="bg-white rounded-xl shadow-xl max-w-2xl w-full mx-4 relative p-6 md:p-10 overflow-y-auto max-h-[90vh]">
+    <button id="close-featured-modal" class="absolute top-4 right-4 text-gray-400 hover:text-primary text-2xl" aria-label="Закрыть">
+      &times;
+    </button>
+    <!-- Контент на разных языках -->
+    <div data-lang-content="ru" class="lang-modal-content">
+      <div class="text-2xl font-bold mb-2">🌐 Сайт компании Kreuztaler Werkstatt GmbH</div>
+      <div class="mb-4 text-primary font-semibold">📌 Описание проекта</div>
+      <div class="mb-4">
+        Разработан современный, адаптивный веб-сайт для автосервиса с фокусом на:<br>
+        <ul class="list-disc pl-5 mt-2 mb-2">
+          <li>удобство клиента,</li>
+          <li>онлайн-запись на услуги,</li>
+          <li>эффективное управление заявками через административную панель,</li>
+          <li>интеграцию мгновенных сообщений в Telegram о новых записях клиентов.</li>
+        </ul>
+        <div class="mb-2 font-semibold">Пример уведомления в Telegram:</div>
+        <pre class="bg-gray-100 rounded p-3 text-xs overflow-x-auto mb-2">Новая заявка!  
+Имя: Иван Иванов  
+E-Mail: ivan@example.com  
+Телефон: +7 999 123-45-67  
+Услуга: Замена масла  
+Дата: 2025-06-18  
+Время: 11:00  
+Сообщение: Дополнительно проверьте, пожалуйста, работу кондиционера</pre>
+      </div>
+      <div class="mb-2 font-semibold">🔧 Основной функционал</div>
+      <div class="mb-2"><span class="font-semibold">🖥️ Рекламный раздел</span>
+        <ul class="list-disc pl-5">
+          <li>Визуально привлекательная главная страница</li>
+          <li>Подробное описание услуг</li>
+          <li>Преимущества компании</li>
+          <li>Отзывы клиентов</li>
+          <li>Фотогалерея</li>
+        </ul>
+      </div>
+      <div class="mb-2"><span class="font-semibold">📅 Онлайн-запись</span>
+        <ul class="list-disc pl-5">
+          <li>Удобная форма записи на ремонт или обслуживание</li>
+          <li>Выбор услуги, даты и времени</li>
+          <li>Ввод контактных данных</li>
+          <li>Подтверждение и уведомления</li>
+        </ul>
+      </div>
+      <div class="mb-2"><span class="font-semibold">👤 Личный кабинет администратора</span>
+        <ul class="list-disc pl-5">
+          <li>Просмотр истории записей</li>
+          <li>Отправка напоминаний на почту клиентам</li>
+          <li>Возможность отмены или переноса записей</li>
+        </ul>
+      </div>
+      <div class="mb-2"><span class="font-semibold">🛠️ Административная панель</span>
+        <ul class="list-disc pl-5">
+          <li>Управление заявками</li>
+          <li>Управление услугами</li>
+          <li>Контроль загрузки специалистов</li>
+          <li>Отправка напоминаний клиентам</li>
+        </ul>
+      </div>
+      <div class="mb-2"><span class="font-semibold">📱 Адаптивный дизайн</span>
+        <ul class="list-disc pl-5">
+          <li>Корректное отображение сайта на: компьютерах, планшетах, смартфонах</li>
+        </ul>
+      </div>
+      <div class="mb-2"><span class="font-semibold">⚙️ Применённые технологии</span>
+        <div class="mb-1">Frontend: HTML5, CSS3, JavaScript (ES6+), React.js, Bootstrap / Material-UI</div>
+        <div class="mb-1">Backend: Python (Django или Flask)</div>
+        <div>Телеграм-уведомления: Интеграция через Telegram-бот</div>
+      </div>
+      <div class="mb-2 font-semibold">✅ Преимущества для клиентов и бизнеса</div>
+      <ul class="list-disc pl-5 mb-2">
+        <li>Онлайн-запись без необходимости звонков</li>
+        <li>Email-напоминания уменьшают количество неявок</li>
+        <li>Оптимизация загрузки сотрудников</li>
+        <li>Повышение качества обслуживания</li>
+        <li>Рост конкурентоспособности</li>
+      </ul>
+      <div class="mb-2 font-semibold">📈 Результат</div>
+      <div>
+        Цифровой инструмент, способствующий:<br>
+        привлечению новых клиентов,<br>
+        повышению лояльности,<br>
+        автоматизации ключевых бизнес-процессов автосервиса.
+      </div>
+    </div>
+    <div data-lang-content="en" class="lang-modal-content hidden">
+      <div class="text-2xl font-bold mb-2">🌐 Kreuztaler Werkstatt GmbH Website</div>
+      <div class="mb-4 text-primary font-semibold">📌 Project Description</div>
+      <div class="mb-4">
+        Developed a modern, responsive website for a car service center focused on:<br>
+        <ul class="list-disc pl-5 mt-2 mb-2">
+          <li>customer convenience,</li>
+          <li>online booking for services,</li>
+          <li>efficient request management via an admin panel,</li>
+          <li>integration of instant Telegram notifications for new client bookings.</li>
+        </ul>
+        <div class="mb-2 font-semibold">Example Telegram notification:</div>
+        <pre class="bg-gray-100 rounded p-3 text-xs overflow-x-auto mb-2">New request!  
+Name: Ivan Ivanov  
+E-Mail: ivan@example.com  
+Phone: +1 555 123-4567  
+Service: Oil change  
+Date: 2025-06-18  
+Time: 11:00  
+Message: Please also check the air conditioner</pre>
+      </div>
+      <div class="mb-2 font-semibold">🔧 Key Features</div>
+      <div class="mb-2"><span class="font-semibold">🖥️ Promo Section</span>
+        <ul class="list-disc pl-5">
+          <li>Visually appealing homepage</li>
+          <li>Detailed service descriptions</li>
+          <li>Company advantages</li>
+          <li>Client testimonials</li>
+          <li>Photo gallery</li>
+        </ul>
+      </div>
+      <div class="mb-2"><span class="font-semibold">📅 Online Booking</span>
+        <ul class="list-disc pl-5">
+          <li>Convenient booking form for repairs or maintenance</li>
+          <li>Service, date, and time selection</li>
+          <li>Contact information input</li>
+          <li>Confirmation and notifications</li>
+        </ul>
+      </div>
+      <div class="mb-2"><span class="font-semibold">👤 Admin Dashboard</span>
+        <ul class="list-disc pl-5">
+          <li>View booking history</li>
+          <li>Send email reminders to clients</li>
+          <li>Ability to cancel or reschedule bookings</li>
+        </ul>
+      </div>
+      <div class="mb-2"><span class="font-semibold">🛠️ Admin Panel</span>
+        <ul class="list-disc pl-5">
+          <li>Manage requests</li>
+          <li>Manage services</li>
+          <li>Specialist workload control</li>
+          <li>Send reminders to clients</li>
+        </ul>
+      </div>
+      <div class="mb-2"><span class="font-semibold">📱 Responsive Design</span>
+        <ul class="list-disc pl-5">
+          <li>Proper display on: desktops, tablets, smartphones</li>
+        </ul>
+      </div>
+      <div class="mb-2"><span class="font-semibold">⚙️ Technologies Used</span>
+        <div class="mb-1">Frontend: HTML5, CSS3, JavaScript (ES6+), React.js, Bootstrap / Material-UI</div>
+        <div class="mb-1">Backend: Python (Django or Flask)</div>
+        <div>Telegram notifications: Integration via Telegram bot</div>
+      </div>
+      <div class="mb-2 font-semibold">✅ Benefits for Clients and Business</div>
+      <ul class="list-disc pl-5 mb-2">
+        <li>Online booking without phone calls</li>
+        <li>Email reminders reduce no-shows</li>
+        <li>Optimized staff workload</li>
+        <li>Improved service quality</li>
+        <li>Increased competitiveness</li>
+      </ul>
+      <div class="mb-2 font-semibold">📈 Result</div>
+      <div>
+        A digital tool that helps:<br>
+        attract new clients,<br>
+        increase loyalty,<br>
+        automate key business processes for the car service center.
+      </div>
+    </div>
+    <div data-lang-content="de" class="lang-modal-content hidden">
+      <div class="text-2xl font-bold mb-2">🌐 Website der Kreuztaler Werkstatt GmbH</div>
+      <div class="mb-4 text-primary font-semibold">📌 Projektbeschreibung</div>
+      <div class="mb-4">
+        Entwicklung einer modernen, responsiven Website für eine Autowerkstatt mit Fokus auf:<br>
+        <ul class="list-disc pl-5 mt-2 mb-2">
+          <li>Kundenzufriedenheit,</li>
+          <li>Online-Terminbuchung,</li>
+          <li>effiziente Auftragsverwaltung über ein Admin-Panel,</li>
+          <li>Integration von Sofortbenachrichtigungen in Telegram bei neuen Buchungen.</li>
+        </ul>
+        <div class="mb-2 font-semibold">Beispiel für eine Telegram-Benachrichtigung:</div>
+        <pre class="bg-gray-100 rounded p-3 text-xs overflow-x-auto mb-2">Neue Anfrage!  
+Name: Ivan Ivanov  
+E-Mail: ivan@example.com  
+Telefon: +49 1512 3456789  
+Leistung: Ölwechsel  
+Datum: 2025-06-18  
+Uhrzeit: 11:00  
+Nachricht: Bitte prüfen Sie auch die Klimaanlage</pre>
+      </div>
+      <div class="mb-2 font-semibold">🔧 Hauptfunktionen</div>
+      <div class="mb-2"><span class="font-semibold">🖥️ Werbebereich</span>
+        <ul class="list-disc pl-5">
+          <li>Attraktive Startseite</li>
+          <li>Detaillierte Leistungsbeschreibungen</li>
+          <li>Vorteile des Unternehmens</li>
+          <li>Kundenbewertungen</li>
+          <li>Fotogalerie</li>
+        </ul>
+      </div>
+      <div class="mb-2"><span class="font-semibold">📅 Online-Terminbuchung</span>
+        <ul class="list-disc pl-5">
+          <li>Bequemes Buchungsformular für Reparatur oder Wartung</li>
+          <li>Auswahl von Leistung, Datum und Uhrzeit</li>
+          <li>Eingabe von Kontaktdaten</li>
+          <li>Bestätigung und Benachrichtigungen</li>
+        </ul>
+      </div>
+      <div class="mb-2"><span class="font-semibold">👤 Admin-Bereich</span>
+        <ul class="list-disc pl-5">
+          <li>Ansicht der Buchungshistorie</li>
+          <li>Versand von Erinnerungen per E-Mail an Kunden</li>
+          <li>Möglichkeit zur Stornierung oder Verschiebung von Terminen</li>
+        </ul>
+      </div>
+      <div class="mb-2"><span class="font-semibold">🛠️ Administrationspanel</span>
+        <ul class="list-disc pl-5">
+          <li>Verwaltung von Anfragen</li>
+          <li>Verwaltung von Leistungen</li>
+          <li>Auslastungskontrolle der Spezialisten</li>
+          <li>Versand von Erinnerungen an Kunden</li>
+        </ul>
+      </div>
+      <div class="mb-2"><span class="font-semibold">📱 Responsives Design</span>
+        <ul class="list-disc pl-5">
+          <li>Korrekte Darstellung auf: Desktop, Tablet, Smartphone</li>
+        </ul>
+      </div>
+      <div class="mb-2"><span class="font-semibold">⚙️ Eingesetzte Technologien</span>
+        <div class="mb-1">Frontend: HTML5, CSS3, JavaScript (ES6+), React.js, Bootstrap / Material-UI</div>
+        <div class="mb-1">Backend: Python (Django oder Flask)</div>
+        <div>Telegram-Benachrichtigungen: Integration über Telegram-Bot</div>
+      </div>
+      <div class="mb-2 font-semibold">✅ Vorteile für Kunden und Unternehmen</div>
+      <ul class="list-disc pl-5 mb-2">
+        <li>Online-Terminbuchung ohne Anrufe</li>
+        <li>E-Mail-Erinnerungen reduzieren Ausfälle</li>
+        <li>Optimierte Auslastung der Mitarbeiter</li>
+        <li>Verbesserte Servicequalität</li>
+        <li>Steigerung der Wettbewerbsfähigkeit</li>
+      </ul>
+      <div class="mb-2 font-semibold">📈 Ergebnis</div>
+      <div>
+        Ein digitales Tool, das hilft:<br>
+        neue Kunden zu gewinnen,<br>
+        die Loyalität zu steigern,<br>
+        und die wichtigsten Geschäftsprozesse der Werkstatt zu automatisieren.
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Модальное окно Featured Project
+const modal = document.getElementById('featured-modal');
+const trigger = document.getElementById('featured-project-trigger');
+const closeBtn = document.getElementById('close-featured-modal');
+
+function showModalForLang(lang) {
+  // Скрыть все языковые блоки
+  document.querySelectorAll('.lang-modal-content').forEach(el => el.classList.add('hidden'));
+  // Показать нужный
+  const block = document.querySelector('.lang-modal-content[data-lang-content="' + lang + '"]');
+  if (block) block.classList.remove('hidden');
+}
+
+if (trigger && modal && closeBtn) {
+  trigger.addEventListener('click', () => {
+    const lang = localStorage.getItem('site-lang') || 'de';
+    showModalForLang(lang);
+    modal.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+  });
+  closeBtn.addEventListener('click', () => {
+    modal.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+  });
+  // Закрытие по клику вне окна
+  modal.addEventListener('click', e => {
+    if (e.target === modal) {
+      modal.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+  });
+}
+
+// Переключение языка для модального окна при смене языка сайта
+function updateFeaturedModalLang(lang) {
+  if (!modal.classList.contains('hidden')) {
+    showModalForLang(lang);
+  }
+}
+
+// Вызовите updateFeaturedModalLang при смене языка
+const origSwitchLang = switchLang;
+switchLang = function(lang) {
+  origSwitchLang(lang);
+  updateFeaturedModalLang(lang);
+};
+</script>
+<!-- Services Grid -->
+<section id="services" class="py-20 bg-gray-50">
+<div class="container mx-auto px-6">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<h2 class="heading text-3xl md:text-4xl mb-4 text-[#007A74]"
+    data-ru="Наши услуги" 
+    data-en="Our Services" 
+    data-de="Unsere Leistungen">
+  Our Services
+</h2>
+<p class="text-gray-600"
+   data-ru="Мы предлагаем комплексные решения в области дизайна, чтобы ваш бизнес выделялся в цифровом пространстве."
+   data-en="We offer comprehensive design solutions to help your business stand out in the digital landscape."
+   data-de="Wir bieten umfassende Designlösungen, damit Ihr Unternehmen in der digitalen Welt herausragt.">
+  We offer comprehensive design solutions to help your business stand out in the digital landscape.
+</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Service 1 -->
+<div class="service-card bg-white p-8 rounded-lg shadow-sm transition-all duration-300">
+<div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+<i class="ri-layout-4-line text-primary text-2xl"></i>
+</div>
+<h3 class="heading text-xl mb-3 text-[#007A74]"
+    data-ru="Веб-дизайн"
+    data-en="Web Design"
+    data-de="Webdesign">Web Design</h3>
+<p class="text-gray-600"
+   data-ru="Индивидуальные сайты, которые впечатляют, адаптивны и оптимизированы для конверсии."
+   data-en="Custom-designed websites that are visually stunning, responsive, and optimized for conversion."
+   data-de="Individuell gestaltete Websites, die visuell beeindrucken, responsiv und für Konversionen optimiert sind.">
+  Custom-designed websites that are visually stunning, responsive, and optimized for conversion.
+</p>
+</div>
+<!-- Service 2 -->
+<div class="service-card bg-white p-8 rounded-lg shadow-sm transition-all duration-300">
+<div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+<i class="ri-smartphone-line text-primary text-2xl"></i>
+</div>
+<h3 class="heading text-xl mb-3 text-[#007A74]"
+    data-ru="UI/UX дизайн"
+    data-en="UI/UX Design"
+    data-de="UI/UX Design">UI/UX Design</h3>
+<p class="text-gray-600"
+   data-ru="Интуитивно понятные пользовательские интерфейсы и бесшовные впечатления, которые радуют ваших клиентов и повышают вовлеченность."
+   data-en="Intuitive user interfaces and seamless experiences that delight your customers and drive engagement."
+   data-de="Intuitive Benutzeroberflächen und nahtlose Erlebnisse, die Ihre Kunden begeistern und die Interaktion fördern.">
+  Intuitive user interfaces and seamless experiences that delight your customers and drive engagement.
+</p>
+</div>
+<!-- Service 3 -->
+<div class="service-card bg-white p-8 rounded-lg shadow-sm transition-all duration-300">
+<div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+<i class="ri-palette-line text-primary text-2xl"></i>
+</div>
+<h3 class="heading text-xl mb-3 text-[#007A74]"
+    data-ru="Айдентика"
+    data-en="Brand Identity"
+    data-de="Markenidentität">Brand Identity</h3>
+<p class="text-gray-600"
+   data-ru="Комплексные бренд-системы, которые передают ваши ценности и связываются с вашей аудиторией."
+   data-en="Comprehensive brand systems that communicate your values and connect with your audience."
+   data-de="Umfassende Markensysteme, die Ihre Werte kommunizieren und Ihre Zielgruppe ansprechen.">
+  Comprehensive brand systems that communicate your values and connect with your audience.
+</p>
+</div>
+<!-- Service 4 -->
+<div class="service-card bg-white p-8 rounded-lg shadow-sm transition-all duration-300">
+<div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+<i class="ri-pen-nib-line text-primary text-2xl"></i>
+</div>
+<h3 class="heading text-xl mb-3 text-[#007A74]"
+    data-ru="Логотип"
+    data-en="Logo Design"
+    data-de="Logo Design">Logo Design</h3>
+<p class="text-gray-600"
+   data-ru="Уникальные и запоминающиеся логотипы, которые передают суть вашего бренда и выдерживают испытание временем."
+   data-en="Distinctive and memorable logos that capture the essence of your brand and stand the test of time."
+   data-de="Unverwechselbare und einprägsame Logos, die das Wesen Ihrer Marke einfangen und die Zeit überdauern.">
+  Distinctive and memorable logos that capture the essence of your brand and stand the test of time.
+</p>
+</div>
+<!-- Service 5 -->
+<div class="service-card bg-white p-8 rounded-lg shadow-sm transition-all duration-300">
+<div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+<i class="ri-box-3-line text-primary text-2xl"></i>
+</div>
+<h3 class="heading text-xl mb-3 text-[#007A74]"
+    data-ru="Упаковка"
+    data-en="Packaging"
+    data-de="Verpackung">Packaging</h3>
+<p class="text-gray-600"
+   data-ru="Привлекательные дизайны упаковки, которые повышают привлекательность продукта и создают незабываемые впечатления от распаковки."
+   data-en="Eye-catching packaging designs that enhance product appeal and create memorable unboxing experiences."
+   data-de="Auffällige Verpackungsdesigns, die die Attraktivität des Produkts steigern und unvergessliche Auspackerlebnisse schaffen.">
+  Eye-catching packaging designs that enhance product appeal and create memorable unboxing experiences.
+</p>
+</div>
+<!-- Service 6 -->
+<div class="service-card bg-white p-8 rounded-lg shadow-sm transition-all duration-300">
+<div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+<i class="ri-lightbulb-line text-primary text-2xl"></i>
+</div>
+<h3 class="heading text-xl mb-3 text-[#007A74]"
+    data-ru="Креативная стратегия"
+    data-en="Creative Strategy"
+    data-de="Kreativstrategie">Creative Strategy</h3>
+<p class="text-gray-600"
+   data-ru="Стратегическое планирование и креативное руководство, чтобы помочь вашему бренду достичь своих бизнес-целей."
+   data-en="Strategic planning and creative direction to help your brand achieve its business objectives."
+   data-de="Strategische Planung und kreative Leitung, um Ihrer Marke zu helfen, ihre Geschäftsziele zu erreichen.">
+  Strategic planning and creative direction to help your brand achieve its business objectives.
+</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Portfolio Section -->
+<section id="portfolio" class="py-20 bg-white">
+  <div class="container mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h2 class="heading text-3xl md:text-4xl mb-4 text-[#007A74]"
+          data-ru="Портфолио"
+          data-en="Our Portfolio"
+          data-de="Unser Portfolio">Our Portfolio</h2>
+      <p class="text-gray-600"
+         data-ru="Посмотрите наши последние проекты и узнайте, как мы помогли брендам преобразить их цифровое присутствие."
+         data-en="Explore our recent projects and see how we've helped brands transform their digital presence."
+         data-de="Entdecken Sie unsere aktuellen Projekte und sehen Sie, wie wir Marken bei der digitalen Transformation unterstützt haben.">
+        Explore our recent projects and see how we've helped brands transform their digital presence.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Portfolio Item: Kreuztaler Werkstatt -->
+      <div class="portfolio-item group relative rounded-lg overflow-hidden shadow hover:shadow-lg transition-shadow duration-300 bg-white">
+        <img src="logo/kw.png" alt="Kreuztaler Werkstatt" class="w-full h-80 object-contain bg-white transition-transform duration-300 group-hover:scale-105">
+        <div class="portfolio-overlay absolute inset-0 bg-primary/80 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <h3 class="text-white text-xl font-semibold mb-1"
+              data-ru="Kreuztaler Werkstatt"
+              data-en="Kreuztaler Werkstatt"
+              data-de="Kreuztaler Werkstatt">Kreuztaler Werkstatt</h3>
+          <p class="text-white/80 mb-4"
+             data-ru="Веб-дизайн и UI/UX дизайн"
+             data-en="Web Design & UI/UX Design"
+             data-de="Webdesign & UI/UX Design">Web Design & UI/UX Design</p>
+          <a href="https://my-flask-site-5pkl.onrender.com/" target="_blank" rel="noopener"
+             class="text-white border border-white/30 px-4 py-2 !rounded-button inline-block hover:bg-white hover:text-primary transition-colors whitespace-nowrap w-fit"
+             data-ru="Смотреть проект"
+             data-en="View Project"
+             data-de="Projekt ansehen">View Project</a>
+        </div>
+      </div>
+      <!-- Portfolio Item: Разработка упаковки клубники -->
+      <div class="portfolio-item group relative rounded-lg overflow-hidden shadow hover:shadow-lg transition-shadow duration-300 bg-white" id="portfolio-strawberry">
+        <img src="logo/stra.jpg" alt="Strawberry Packaging" class="w-full h-80 object-contain bg-white transition-transform duration-300 group-hover:scale-105">
+        <div class="portfolio-overlay absolute inset-0 bg-primary/80 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <h3 class="text-white text-xl font-semibold mb-1"
+              data-ru="Разработка упаковки клубники"
+              data-en="Strawberry Packaging Design"
+              data-de="Erdbeer Verpackungsdesign">Разработка упаковки клубники</h3>
+          <p class="text-white/80 mb-4"
+             data-ru="Упаковка и айдентика"
+             data-en="Packaging & Brand Identity"
+             data-de="Verpackung & Markenidentität">Packaging & Brand Identity</p>
+          <a href="#" class="text-white border border-white/30 px-4 py-2 !rounded-button inline-block hover:bg-white hover:text-primary transition-colors whitespace-nowrap w-fit open-portfolio-modal"
+             data-project="strawberry"
+             data-ru="Смотреть проект"
+             data-en="View Project"
+             data-de="Projekt ansehen">View Project</a>
+        </div>
+      </div>
+      <!-- Portfolio Item: Dermatologist Services -->
+      <div class="portfolio-item group relative rounded-lg overflow-hidden shadow hover:shadow-lg transition-shadow duration-300 bg-white" id="portfolio-derma">
+        <img src="logo/derma.png" alt="Dermatologist Services" class="w-full h-80 object-contain bg-white transition-transform duration-300 group-hover:scale-105">
+        <div class="portfolio-overlay absolute inset-0 bg-primary/80 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <h3 class="text-white text-xl font-semibold mb-1"
+              data-ru="Dermatologist Services"
+              data-en="Dermatologist Services"
+              data-de="Dermatologist Services">Dermatologist Services</h3>
+          <p class="text-white/80 mb-4"
+             data-ru="Веб-дизайн и айдентика"
+             data-en="Web Design & Brand Identity"
+             data-de="Webdesign & Markenidentität">Web Design & Brand Identity</p>
+          <a href="#" class="text-white border border-white/30 px-4 py-2 !rounded-button inline-block hover:bg-white hover:text-primary transition-colors whitespace-nowrap w-fit open-portfolio-modal"
+             data-project="derma"
+             data-ru="Смотреть проект"
+             data-en="View Project"
+             data-de="Projekt ansehen">View Project</a>
+        </div>
+      </div>
+      <!-- Portfolio Item: Разработка этикетки для томатов -->
+      <div class="portfolio-item group relative rounded-lg overflow-hidden shadow hover:shadow-lg transition-shadow duration-300 bg-white" id="portfolio-tomato">
+        <img src="logo/tomat.jpg" alt="Tomato Label Design" class="w-full h-80 object-contain bg-white transition-transform duration-300 group-hover:scale-105">
+        <div class="portfolio-overlay absolute inset-0 bg-primary/80 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <h3 class="text-white text-xl font-semibold mb-1"
+              data-ru="Разработка этикетки для томатов"
+              data-en="Tomato Label Design"
+              data-de="Tomaten Etikettendesign">Разработка этикетки для томатов</h3>
+          <p class="text-white/80 mb-4"
+             data-ru="Айдентика и упаковка"
+             data-en="Brand Identity & Packaging"
+             data-de="Markenidentität & Verpackung">Brand Identity & Packaging</p>
+          <a href="#" class="text-white border border-white/30 px-4 py-2 !rounded-button inline-block hover:bg-white hover:text-primary transition-colors whitespace-nowrap w-fit open-portfolio-modal"
+             data-project="tomato"
+             data-ru="Смотреть проект"
+             data-en="View Project"
+             data-de="Projekt ansehen">View Project</a>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-12">
+      <a href="#" class="inline-block border-2 border-gray-800 text-gray-800 px-8 py-3 !rounded-button font-medium hover:bg-gray-800 hover:text-white transition-colors whitespace-nowrap"
+         data-ru="Смотреть все проекты"
+         data-en="View All Projects"
+         data-de="Alle Projekte ansehen">View All Projects</a>
+    </div>
+  </div>
+</section>
+
+<!-- Portfolio Modal (универсальный для всех карточек) -->
+<div id="portfolio-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
+  <div class="bg-white rounded-xl shadow-xl max-w-3xl w-full mx-4 relative p-6 md:p-10 overflow-y-auto max-h-[90vh]">
+    <button id="close-portfolio-modal" class="absolute top-4 right-4 text-gray-400 hover:text-primary text-2xl" aria-label="Закрыть">
+      &times;
+    </button>
+    <!-- Strawberry Project -->
+    <div data-project-content="strawberry" class="portfolio-modal-content hidden">
+      <h2 class="heading text-2xl mb-4 text-[#007A74]"
+          data-ru="Разработка упаковки клубники"
+          data-en="Strawberry Packaging Design"
+          data-de="Erdbeer Verpackungsdesign">Разработка упаковки клубники</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+        <img src="logo/stra.jpg" alt="Strawberry Packaging 1" class="rounded-lg shadow">
+        <img src="logo/stra2.jpg" alt="Strawberry Packaging 2" class="rounded-lg shadow">
+      </div>
+      <p class="mb-2"
+         data-ru="Дизайн упаковки и айдентики для клубники. Современный, яркий и узнаваемый стиль."
+         data-en="Packaging and brand identity design for strawberries. Modern, bright and recognizable style."
+         data-de="Verpackungs- und Markenidentitätsdesign für Erdbeeren. Modern, auffällig und wiedererkennbar.">
+        Packaging and brand identity design for strawberries. Modern, bright and recognizable style.
+      </p>
+    </div>
+    <!-- Dermatologist Services Project -->
+    <div data-project-content="derma" class="portfolio-modal-content hidden">
+      <h2 class="heading text-2xl mb-4 text-[#007A74]"
+          data-ru="Dermatologist Services"
+          data-en="Dermatologist Services"
+          data-de="Dermatologist Services">Dermatologist Services</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+        <img src="logo/derma.png" alt="Dermatologist Services 1" class="rounded-lg shadow">
+        <img src="logo/derma2.jpg" alt="Dermatologist Services 2" class="rounded-lg shadow">
+      </div>
+      <p class="mb-2"
+         data-ru="Айдентика и веб-дизайн для медицинских услуг. Чистый и профессиональный стиль."
+         data-en="Brand identity and web design for medical services. Clean and professional style."
+         data-de="Markenidentität und Webdesign für medizinische Dienstleistungen. Klarer und professioneller Stil.">
+        Brand identity and web design for medical services. Clean and professional style.
+      </p>
+    </div>
+    <!-- Tomato Label Project -->
+    <div data-project-content="tomato" class="portfolio-modal-content hidden">
+      <h2 class="heading text-2xl mb-4 text-[#007A74]"
+          data-ru="Разработка этикетки для томатов"
+          data-en="Tomato Label Design"
+          data-de="Tomaten Etikettendesign">Разработка этикетки для томатов</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+        <img src="logo/tomat.jpg" alt="Tomato Label 1" class="rounded-lg shadow">
+        <img src="logo/tomat2.jpg" alt="Tomato Label 2" class="rounded-lg shadow">
+      </div>
+      <p class="mb-2"
+         data-ru="Дизайн этикетки и упаковки для томатов. Натуральный и свежий визуальный стиль."
+         data-en="Label and packaging design for tomatoes. Natural and fresh visual style."
+         data-de="Etiketten- und Verpackungsdesign für Tomaten. Natürlicher und frischer Stil.">
+        Label and packaging design for tomatoes. Natural and fresh visual style.
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+// ...existing script...
+
+// Portfolio modal logic
+const portfolioModal = document.getElementById('portfolio-modal');
+const closePortfolioModal = document.getElementById('close-portfolio-modal');
+document.querySelectorAll('.open-portfolio-modal').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    const project = this.getAttribute('data-project');
+    document.querySelectorAll('.portfolio-modal-content').forEach(el => el.classList.add('hidden'));
+    const block = document.querySelector('.portfolio-modal-content[data-project-content="' + project + '"]');
+    if (block) block.classList.remove('hidden');
+    portfolioModal.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+  });
+});
+if (closePortfolioModal && portfolioModal) {
+  closePortfolioModal.addEventListener('click', function() {
+    portfolioModal.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+  });
+  portfolioModal.addEventListener('click', function(e) {
+    if (e.target === portfolioModal) {
+      portfolioModal.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+  });
+}
+
+// Обновление языка в модальном окне портфолио
+function updatePortfolioModalLang(lang) {
+  if (portfolioModal && !portfolioModal.classList.contains('hidden')) {
+    document.querySelectorAll('.portfolio-modal-content:not(.hidden) [data-' + lang + ']').forEach(el => {
+      el.textContent = el.getAttribute('data-' + lang);
+    });
+  }
+}
+
+// Вызовите updatePortfolioModalLang при смене языка
+const origSwitchLangPortfolio = switchLang;
+switchLang = function(lang) {
+  origSwitchLangPortfolio(lang);
+  if (typeof updatePortfolioModalLang === 'function') updatePortfolioModalLang(lang);
+  if (typeof updateTermsModalLang === 'function') updateTermsModalLang(lang);
+  if (typeof updatePrivacyModalLang === 'function') updatePrivacyModalLang(lang);
+  if (typeof updateFeaturedModalLang === 'function') updateFeaturedModalLang(lang);
+  if (typeof updateCookiesModalLang === 'function') updateCookiesModalLang(lang);
+};
+</script>
+
+<!-- Contact Section -->
+<section id="contact" class="py-20 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <div class="max-w-6xl mx-auto">
+      <!-- Заголовок и подзаголовок по центру -->
+      <div class="text-center mb-12">
+        <h2 class="heading text-3xl md:text-4xl mb-4 text-[#007A74]"
+            data-ru="Хотите начать проект?"
+            data-en="Ready to start a project?"
+            data-de="Bereit für ein Projekt?">Хотите начать проект?</h2>
+        <p class="text-gray-600"
+           data-ru="Расскажите нам о своих целях, и мы поможем воплотить их в жизнь. Заполните форму ниже — мы свяжемся с вами в ближайшее время."
+           data-en="Tell us about your goals and we’ll help you bring them to life. Fill out the form below and we’ll get in touch soon."
+           data-de="Erzählen Sie uns von Ihren Zielen und wir helfen Ihnen, sie zu verwirklichen. Füllen Sie das Formular aus und wir melden uns bald.">
+          Расскажите нам о своих целях, и мы поможем воплотить их в жизнь. Заполните форму ниже — мы свяжемся с вами в ближайшее время.
+        </p>
+      </div>
+      <!-- Две колонки: форма и контактная информация -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <!-- Форма слева -->
+        <form action="https://api.web3forms.com/submit" method="POST" class="bg-white p-8 rounded-lg shadow w-full">
+          <!-- Web3Forms Access Key -->
+          <input type="hidden" name="access_key" value="d7b55e14-fd69-48f5-9851-efecdfe12122">
+          <!-- Тема письма -->
+          <input type="hidden" name="subject" value="Заказ сайта">
+
+          <label for="contact-name" class="block text-sm font-medium text-gray-700 mb-2"
+                 data-ru="Ваше имя" data-en="Full Name" data-de="Ihr Name">Ваше имя</label>
+          <input type="text" id="contact-name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary mb-4"
+                 placeholder="Ваше имя"
+                 data-ru-placeholder="Ваше имя"
+                 data-en-placeholder="Your name"
+                 data-de-placeholder="Ihr Name" required>
+
+          <label for="contact-email" class="block text-sm font-medium text-gray-700 mb-2"
+                 data-ru="Электронная почта" data-en="Email Address" data-de="E-Mail-Adresse">Электронная почта</label>
+          <input type="email" id="contact-email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary mb-4"
+                 placeholder="Ваш email"
+                 data-ru-placeholder="Ваш email"
+                 data-en-placeholder="Your email"
+                 data-de-placeholder="Ihre E-Mail" required>
+
+          <label for="contact-message" class="block text-sm font-medium text-gray-700 mb-2"
+                 data-ru="Ваше сообщение" data-en="Your Message" data-de="Ihre Nachricht">Ваше сообщение</label>
+          <textarea id="contact-message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary mb-4"
+                    placeholder="Расскажите о вашем проекте"
+                    data-ru-placeholder="Расскажите о вашем проекте"
+                    data-en-placeholder="Tell us about your project"
+                    data-de-placeholder="Erzählen Sie uns von Ihrem Projekt" required></textarea>
+
+          <!-- Honeypot для защиты от спама -->
+          <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+          <button type="submit"
+                  class="w-full bg-primary text-white py-3.5 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap"
+                  data-ru="Отправить сообщение"
+                  data-en="Send Message"
+                  data-de="Nachricht senden">
+            Отправить сообщение
+          </button>
+        </form>
+        <!-- Контактная информация справа -->
+        <div class="bg-white p-8 rounded-lg shadow w-full flex flex-col justify-center">
+          <h3 class="heading text-xl mb-6 text-[#007A74]"
+              data-ru="Контактная информация"
+              data-en="Contact Information"
+              data-de="Kontaktinformationen">Контактная информация</h3>
+          <div class="space-y-6">
+            <div>
+              <span class="text-gray-600"
+                data-ru="Для связи с нами используйте форму на сайте. Мы ответим на ваш запрос в кратчайшие сроки.
+
+Обратите внимание, что вся информация, предоставленная вами через форму, будет использована исключительно для целей связи и обработки вашего запроса.
+
+Мы ценим ваше время и постараемся ответить как можно быстрее."
+                data-en="To contact us, please use the form on the website. We will respond to your inquiry as soon as possible.
+
+Please note that all information you provide through the form will be used solely for the purpose of communication and processing your request.
+
+We value your time and will do our best to respond as quickly as possible."
+                data-de="Um mit uns in Kontakt zu treten, nutzen Sie bitte das Formular auf der Website. Wir werden Ihre Anfrage so schnell wie möglich beantworten.
+
+Bitte beachten Sie, dass alle von Ihnen übermittelten Informationen ausschließlich zur Kontaktaufnahme und Bearbeitung Ihrer Anfrage verwendet werden.
+
+Wir schätzen Ihre Zeit und bemühen uns, so schnell wie möglich zu antworten.">
+                Um mit uns in Kontakt zu treten, nutzen Sie bitte das Formular auf der Website. Wir werden Ihre Anfrage so schnell wie möglich beantworten.
+
+Bitte beachten Sie, dass alle von Ihnen übermittelten Informationen ausschließlich zur Kontaktaufnahme und Bearbeitung Ihrer Anfrage verwendet werden.
+
+Wir schätzen Ihre Zeit und bemühen uns, so schnell wie möglich zu antworten.
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-100 pt-16 pb-8">
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+      <div>
+        <span class="flex items-center space-x-2 mb-4">
+          <img src="logo/ok.png" alt="logo" style="width:32px; height:32px; object-fit:contain; display:inline-block; vertical-align:middle;">
+          <span 
+            id="slogan-footer"
+            data-ru="Марка, сайт, упаковка — всё говорит на одном языке"
+            data-en="Brand, website, packaging – everything speaks the same language"
+            data-de="Marke, Website, Verpackung – alles spricht dieselbe Sprache"
+            style="font-family: 'Montserrat', sans-serif; font-weight:600; font-size:13px; color:#007A74; line-height:1.2;">
+            Marke, Website, Verpackung – alles spricht dieselbe Sprache
+          </span>
+        </span>
+        <p class="text-gray-600 mb-6"
+           data-ru="Мы всегда рады услышать от вас! Если у вас есть вопросы, предложения или пожелания, пожалуйста, заполните форму ниже, и мы обязательно с вами свяжемся."
+           data-en="We are always happy to hear from you! If you have any questions, suggestions, or requests, please fill out the form below and we will get back to you."
+           data-de="Wir freuen uns immer, von Ihnen zu hören! Wenn Sie Fragen, Anregungen oder Wünsche haben, füllen Sie bitte das untenstehende Formular aus und wir melden uns bei Ihnen.">
+          Wir freuen uns immer, von Ihnen zu hören! Wenn Sie Fragen, Anregungen oder Wünsche haben, füllen Sie bitte das untenstehende Formular aus und wir melden uns bei Ihnen.
+        </p>
+      </div>
+      <div>
+        <h4 class="heading text-lg mb-4 text-[#007A74]"
+            data-ru="Компания" data-en="Company" data-de="Unternehmen">Company</h4>
+        <ul class="space-y-2">
+          <li>
+            <a href="#portfolio" class="text-gray-600 hover:text-primary transition-colors"
+               data-ru="Наши работы" data-en="Our Work" data-de="Unsere Arbeiten">Our Work</a>
+          </li>
+          <li>
+            <a href="#services" class="text-gray-600 hover:text-primary transition-colors"
+               data-ru="Услуги" data-en="Services" data-de="Leistungen">Services</a>
+          </li>
+          <li>
+            <a href="#contact" class="text-gray-600 hover:text-primary transition-colors"
+               data-ru="Контакты" data-en="Contact" data-de="Kontakt">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="heading text-lg mb-4 text-[#007A74]"
+            data-ru="Услуги" data-en="Services" data-de="Leistungen">Services</h4>
+        <ul class="space-y-2">
+          <li>
+            <a href="#services" class="text-gray-600 hover:text-primary transition-colors"
+               data-ru="Веб-дизайн" data-en="Web Design" data-de="Webdesign">Web Design</a>
+          </li>
+          <li>
+            <a href="#services" class="text-gray-600 hover:text-primary transition-colors"
+               data-ru="UI/UX дизайн" data-en="UI/UX Design" data-de="UI/UX Design">UI/UX Design</a>
+          </li>
+          <li>
+            <a href="#services" class="text-gray-600 hover:text-primary transition-colors"
+               data-ru="Айдентика" data-en="Brand Identity" data-de="Markenidentität">Brand Identity</a>
+          </li>
+          <li>
+            <a href="#services" class="text-gray-600 hover:text-primary transition-colors"
+               data-ru="Логотип" data-en="Logo Design" data-de="Logo Design">Logo Design</a>
+          </li>
+          <li>
+            <a href="#services" class="text-gray-600 hover:text-primary transition-colors"
+               data-ru="Упаковка" data-en="Packaging" data-de="Verpackung">Packaging</a>
+          </li>
+          <li>
+            <a href="#services" class="text-gray-600 hover:text-primary transition-colors"
+               data-ru="Креативная стратегия" data-en="Creative Strategy" data-de="Kreativstrategie">Creative Strategy</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="heading text-lg mb-4 text-[#007A74]"
+            data-ru="Связаться" data-en="Contact" data-de="Kontakt">Contact</h4>
+        <ul class="space-y-2">
+          <li>
+            <span class="text-gray-600"
+                  data-ru="Мы всегда рады услышать от вас! Если у вас есть вопросы, предложения или пожелания, пожалуйста, заполните форму ниже, и мы обязательно с вами свяжемся."
+                  data-en="We are always happy to hear from you! If you have any questions, suggestions, or requests, please fill out the form below and we will get back to you."
+                  data-de="Wir freuen uns immer, von Ihnen zu hören! Wenn Sie Fragen, Anregungen oder Wünsche haben, füllen Sie bitte das untenstehende Formular aus und wir melden uns bei Ihnen.">
+              Wir freuen uns immer, von Ihnen zu hören! Wenn Sie Fragen, Anregungen oder Wünsche haben, füllen Sie bitte das untenstehende Formular aus und wir melden uns bei Ihnen.
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="pt-8 border-t border-gray-200">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-600 text-sm mb-4 md:mb-0">© 2025 Creative Studio. All rights reserved.</p>
+        <div class="flex space-x-6 text-gray-600 text-sm">
+          <a href="#" id="privacy-link"
+             data-ru="Политика конфиденциальности"
+             data-en="Privacy Policy"
+             data-de="Datenschutzerklärung">Datenschutzerklärung</a>
+          <a href="#" id="terms-link"
+             data-ru="Условия использования"
+             data-en="Terms of Service"
+             data-de="Nutzungsbedingungen">Nutzungsbedingungen</a>
+          <a href="#" id="cookies-link"
+             data-ru="Политика Cookies"
+             data-en="Cookies Policy"
+             data-de="Cookies-Richtlinie">Cookies-Richtlinie</a>
+        </div>
+      </div>
+      <!-- Datenschutz Modal -->
+      <div id="privacy-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
+        <div class="bg-white rounded-xl shadow-xl max-w-2xl w-full mx-4 relative p-6 md:p-10 overflow-y-auto max-h-[90vh]">
+          <button id="close-privacy-modal" class="absolute top-4 right-4 text-gray-400 hover:text-primary text-2xl" aria-label="Закрыть">
+            &times;
+          </button>
+          <!-- DE -->
+          <div data-lang-content="de" class="privacy-modal-content">
+            <h2 class="heading text-2xl mb-4 text-[#007A74]">Datenschutzerklärung</h2>
+            <p>Der Schutz personenbezogener Daten ist ein wichtiges Anliegen. Die Nutzung dieser Website ist in der Regel ohne Angabe personenbezogener Daten möglich.</p>
+            <h3 class="heading text-lg mt-4 mb-2 text-[#007A74]">Allgemeines</h3>
+            <p>Personenbezogene Daten werden nur im technisch notwendigen Umfang erhoben. Eine Weitergabe der Daten an Dritte erfolgt nicht, es sei denn, dies ist gesetzlich vorgeschrieben oder technisch notwendig für den Betrieb der Seite.</p>
+            <h3 class="heading text-lg mt-4 mb-2 text-[#007A74]">Cookies</h3>
+            <p>Zur Verbesserung der Benutzerfreundlichkeit können auf dieser Website Cookies verwendet werden. Diese kleinen Textdateien werden vom Browser auf dem Endgerät der Nutzer gespeichert und enthalten keine Viren oder schädliche Software. Nutzer können die Verwendung von Cookies in den Einstellungen ihres Browsers deaktivieren.</p>
+            <h3 class="heading text-lg mt-4 mb-2 text-[#007A74]">Server-Logs</h3>
+            <p>Beim Besuch dieser Website werden automatisch allgemeine Informationen erfasst. Dazu gehören beispielsweise der verwendete Browsertyp, das Betriebssystem, der Domainname des Internetanbieters und ähnliche Angaben. Diese Daten lassen keine Rückschlüsse auf die Identität des Nutzers zu.</p>
+            <h3 class="heading text-lg mt-4 mb-2 text-[#007A74]">Analyse-Tools</h3>
+            <p>Es kann sein, dass Tools zur statistischen Auswertung von Seitenzugriffen verwendet werden. Dabei können pseudonymisierte Daten erhoben werden. Ein Bezug zu konkreten personenbezogenen Daten findet nicht statt.</p>
+            <h3 class="heading text-lg mt-4 mb-2 text-[#007A74]">Rechte der betroffenen Personen</h3>
+            <p>Betroffene Personen haben das Recht auf Auskunft, Berichtigung, Löschung oder Einschränkung der Verarbeitung ihrer Daten im Rahmen der gesetzlichen Bestimmungen.</p>
+          </div>
+          <!-- EN -->
+          <div data-lang-content="en" class="privacy-modal-content hidden">
+            <h2 class="heading text-2xl mb-4 text-[#007A74]">Privacy Policy</h2>
+            <p>The protection of personal data is an important concern. The use of this website is generally possible without providing personal data.</p>
+            <h3 class="heading text-lg mt-4 mb-2 text-[#007A74]">General</h3>
+            <p>Personal data is only collected to the extent technically necessary. Data will not be passed on to third parties unless required by law or technically necessary for the operation of the site.</p>
+            <h3 class="heading text-lg mt-4 mb-2 text-[#007A74]">Cookies</h3>
+            <p>To improve user-friendliness, cookies may be used on this website. These small text files are stored by the browser on the user's device and do not contain viruses or harmful software. Users can disable the use of cookies in their browser settings.</p>
+            <h3 class="heading text-lg mt-4 mb-2 text-[#007A74]">Server Logs</h3>
+            <p>When visiting this website, general information is automatically collected. This includes, for example, the browser type used, the operating system, the domain name of the Internet provider, and similar information. This data does not allow any conclusions to be drawn about the user's identity.</p>
+            <h3 class="heading text-lg mt-4 mb-2 text-[#007A74]">Analytics Tools</h3>
+            <p>It is possible that tools for statistical analysis of page accesses are used. Pseudonymized data may be collected in this process. There is no reference to specific personal data.</p>
+            <h3 class="heading text-lg mt-4 mb-2 text-[#007A74]">Rights of Data Subjects</h3>
+            <p>Data subjects have the right to information, correction, deletion, or restriction of the processing of their data within the framework of legal regulations.</p>
+          </div>
+          <!-- RU -->
+          <div data-lang-content="ru" class="privacy-modal-content hidden">
+            <h2 class="heading text-2xl mb-4 text-[#007A74]">Политика конфиденциальности</h2>
+            <p>Защита персональных данных является важной задачей. Использование этого сайта, как правило, возможно без указания персональных данных.</p>
+            <h3 class="heading text-lg mt-4 mb-2 text-[#007A74]">Общие положения</h3>
+            <p>Персональные данные собираются только в технически необходимом объёме. Передача данных третьим лицам не осуществляется, за исключением случаев, предусмотренных законом или необходимых для работы сайта.</p>
+            <h3 class="heading text-lg mt-4 mb-2 text-[#007A74]">Cookies</h3>
+            <p>Для повышения удобства пользователей на этом сайте могут использоваться cookies. Эти небольшие текстовые файлы сохраняются браузером на устройстве пользователя и не содержат вирусов или вредоносного ПО. Пользователь может отключить использование cookies в настройках своего браузера.</p>
+            <h3 class="heading text-lg mt-4 mb-2 text-[#007A74]">Серверные логи</h3>
+            <p>При посещении сайта автоматически фиксируется общая информация, такая как тип используемого браузера, операционная система, доменное имя интернет-провайдера и подобные данные. Эти данные не позволяют установить личность пользователя.</p>
+            <h3 class="heading text-lg mt-4 mb-2 text-[#007A74]">Аналитические инструменты</h3>
+            <p>Возможно использование инструментов для статистической оценки посещаемости сайта. При этом могут собираться псевдонимизированные данные. Связи с конкретными персональными данными не происходит.</p>
+            <h3 class="heading text-lg mt-4 mb-2 text-[#007A74]">Права субъектов данных</h3>
+            <p>Субъекты данных имеют право на получение информации, исправление, удаление или ограничение обработки своих данных в рамках законодательства.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Модальное окно Nutzungsbedingungen / Terms of Service / Условия использования -->
+      <div id="terms-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
+        <div class="bg-white rounded-xl shadow-xl max-w-2xl w-full mx-4 relative p-6 md:p-10 overflow-y-auto max-h-[90vh]">
+          <button id="close-terms-modal" class="absolute top-4 right-4 text-gray-400 hover:text-primary text-2xl" aria-label="Закрыть">
+            &times;
+          </button>
+          <!-- DE -->
+          <div data-lang-content="de" class="terms-modal-content">
+            <h2 class="heading text-2xl mb-4 text-[#007A74]">Nutzungsbedingungen</h2>
+            <p>Der Zugang zu dieser Ressource wird unverbindlich bereitgestellt. Die Nutzung von Materialien und Funktionen ist im Rahmen ihrer Verfügbarkeit möglich.</p>
+            <p>Die auf der Website bereitgestellten Informationen können ohne vorherige Ankündigung geändert werden. Für Vollständigkeit, Aktualität und Richtigkeit der Inhalte wird keine Gewähr übernommen.</p>
+            <p>Die Nutzer entscheiden eigenverantwortlich, wie sie die bereitgestellten Informationen verwenden. Mögliche Folgen der Nutzung liegen im eigenen Verantwortungsbereich.</p>
+            <p>Mit der weiteren Nutzung dieser Ressource bestätigen Sie, dass Sie die Bedingungen gelesen haben und diese in der vorliegenden Form akzeptieren.</p>
+          </div>
+          <!-- EN -->
+          <div data-lang-content="en" class="terms-modal-content hidden">
+            <h2 class="heading text-2xl mb-4 text-[#007A74]">Terms of Service</h2>
+            <p>Access to this resource is provided without obligation. Use of materials and features is possible within their availability.</p>
+            <p>The information presented on the site may be changed without prior notice. Completeness, relevance, and accuracy of the content are not guaranteed.</p>
+            <p>Users independently determine how to use the posted information. Any consequences of use remain within the scope of personal responsibility.</p>
+            <p>By continuing to use this resource, you confirm that you have read and accept the terms as they are.</p>
+          </div>
+          <!-- RU -->
+          <div data-lang-content="ru" class="terms-modal-content hidden">
+            <h2 class="heading text-2xl mb-4 text-[#007A74]">Условия использования</h2>
+            <p>Доступ к этому ресурсу предоставляется без обязательств. Использование материалов и функций возможно в пределах их доступности.</p>
+            <p>Информация, представленная на сайте, может быть изменена без предварительного уведомления. Полнота, актуальность и точность содержимого не гарантируются.</p>
+            <p>Пользователи самостоятельно определяют, каким образом использовать размещённую информацию. Возможные последствия использования остаются в сфере личной ответственности.</p>
+            <p>Продолжая пользоваться данным ресурсом, вы подтверждаете, что ознакомились с условиями и принимаете их в существующем виде.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Модальное окно Cookies Policy / Cookies-Richtlinie / Политика Cookies -->
+      <div id="cookies-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
+        <div class="bg-white rounded-xl shadow-xl max-w-2xl w-full mx-4 relative p-6 md:p-10 overflow-y-auto max-h-[90vh]">
+          <button id="close-cookies-modal" class="absolute top-4 right-4 text-gray-400 hover:text-primary text-2xl" aria-label="Закрыть">
+            &times;
+          </button>
+          <!-- DE -->
+          <div data-lang-content="de" class="cookies-modal-content">
+            <h2 class="heading text-2xl mb-4 text-[#007A74]">Cookies-Richtlinie</h2>
+            <p>Diese Website verwendet Cookies, um die Nutzererfahrung zu verbessern, die Nutzung unserer Dienste zu analysieren und Funktionen bereitzustellen, die zur Verbesserung des Zugriffs auf die Website beitragen können. Die Verwendung von Cookies kann zur Speicherung von Informationen auf dem Endgerät des Nutzers führen, die in einigen Fällen auch von Drittanbietern verarbeitet werden.</p>
+            <p>Durch die Nutzung dieser Website erklären Sie sich mit der Speicherung und Verarbeitung von Cookies einverstanden, soweit dies im Rahmen der geltenden rechtlichen Bestimmungen zulässig ist. Sie haben die Möglichkeit, die Cookie-Einstellungen zu ändern oder Cookies zu deaktivieren, jedoch können bestimmte Funktionen der Website ohne Cookies möglicherweise nicht in vollem Umfang genutzt werden.</p>
+            <p>Weitere Informationen zur Art der verwendeten Cookies und den möglichen Auswirkungen auf Ihre Privatsphäre finden Sie in unserer detaillierten Datenschutzerklärung.</p>
+            <p>Die Informationen zur Verwendung von Cookies können jederzeit aktualisiert werden, und wir empfehlen, diese regelmäßig zu überprüfen.</p>
+          </div>
+          <!-- EN -->
+          <div data-lang-content="en" class="cookies-modal-content hidden">
+            <h2 class="heading text-2xl mb-4 text-[#007A74]">Cookies Policy</h2>
+            <p>This website uses cookies to improve user experience, analyze the use of our services, and provide features that may help enhance access to the website. The use of cookies may result in information being stored on the user's device, which in some cases may also be processed by third parties.</p>
+            <p>By using this website, you consent to the storage and processing of cookies to the extent permitted by applicable law. You have the option to change your cookie settings or disable cookies, but certain features of the website may not be fully available without cookies.</p>
+            <p>For more information about the types of cookies used and the possible impact on your privacy, please refer to our detailed privacy policy.</p>
+            <p>The information on the use of cookies may be updated at any time, and we recommend checking it regularly.</p>
+          </div>
+          <!-- RU -->
+          <div data-lang-content="ru" class="cookies-modal-content hidden">
+            <h2 class="heading text-2xl mb-4 text-[#007A74]">Политика Cookies</h2>
+            <p>Этот сайт использует cookies для улучшения пользовательского опыта, анализа использования наших сервисов и предоставления функций, которые могут способствовать улучшению доступа к сайту. Использование cookies может привести к сохранению информации на устройстве пользователя, которая в некоторых случаях также может обрабатываться третьими лицами.</p>
+            <p>Используя этот сайт, вы соглашаетесь на хранение и обработку cookies в пределах, разрешённых действующим законодательством. Вы можете изменить настройки cookies или отключить их, однако некоторые функции сайта могут быть недоступны без использования cookies.</p>
+            <p>Более подробную информацию о типах используемых cookies и возможном влиянии на вашу конфиденциальность вы найдёте в нашей подробной политике конфиденциальности.</p>
+            <p>Информация об использовании cookies может быть обновлена в любое время, рекомендуем регулярно её проверять.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function setActiveLangBtn(lang) {
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    if (btn.dataset.lang === lang) {
+      btn.classList.add('bg-primary', 'text-white');
+      btn.classList.remove('border-gray-300');
+    } else {
+      btn.classList.remove('bg-primary', 'text-white');
+      btn.classList.add('border-gray-300');
+    }
+  });
+}
+
+function switchLang(lang) {
+  document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+    el.innerHTML = el.getAttribute('data-' + lang);
+  });
+  document.querySelectorAll('[data-' + lang + '-placeholder]').forEach(el => {
+    el.setAttribute('placeholder', el.getAttribute('data-' + lang + '-placeholder'));
+  });
+  document.querySelectorAll('select').forEach(select => {
+    Array.from(select.options).forEach(option => {
+      if (option.hasAttribute('data-' + lang)) {
+        option.textContent = option.getAttribute('data-' + lang);
+      }
+    });
+  });
+  setActiveLangBtn(lang);
+  localStorage.setItem('site-lang', lang);
+
+  // Обновить текст hero-title
+  const h1 = document.getElementById('hero-title');
+  if (h1 && h1.dataset[lang]) {
+    h1.textContent = h1.dataset[lang];
+  }
+
+  // Обновить модальное окно Datenschutz
+  if (typeof updatePrivacyModalLang === 'function') {
+    updatePrivacyModalLang(lang);
+  }
+}
+
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const lang = this.dataset.lang;
+    switchLang(lang);
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const savedLang = localStorage.getItem('site-lang') || 'de';
+  switchLang(savedLang);
+});
+
+// Datenschutz modal logic
+const privacyLink = document.getElementById('privacy-link');
+const privacyModal = document.getElementById('privacy-modal');
+const closePrivacyModal = document.getElementById('close-privacy-modal');
+
+function showPrivacyModalForLang(lang) {
+  document.querySelectorAll('.privacy-modal-content').forEach(el => el.classList.add('hidden'));
+  const block = document.querySelector('.privacy-modal-content[data-lang-content="' + lang + '"]');
+  if (block) block.classList.remove('hidden');
+}
+
+if (privacyLink && privacyModal && closePrivacyModal) {
+  privacyLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    const lang = localStorage.getItem('site-lang') || 'de';
+    showPrivacyModalForLang(lang);
+    privacyModal.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+  });
+  closePrivacyModal.addEventListener('click', function() {
+    privacyModal.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+  });
+  privacyModal.addEventListener('click', function(e) {
+    if (e.target === privacyModal) {
+      privacyModal.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+  });
+}
+
+function updatePrivacyModalLang(lang) {
+  if (privacyModal && !privacyModal.classList.contains('hidden')) {
+    showPrivacyModalForLang(lang);
+  }
+}
+
+// Nutzungsbedingungen modal logic
+const termsLink = document.getElementById('terms-link');
+const termsModal = document.getElementById('terms-modal');
+const closeTermsModal = document.getElementById('close-terms-modal');
+
+function showTermsModalForLang(lang) {
+  document.querySelectorAll('.terms-modal-content').forEach(el => el.classList.add('hidden'));
+  const block = document.querySelector('.terms-modal-content[data-lang-content="' + lang + '"]');
+  if (block) block.classList.remove('hidden');
+}
+
+if (termsLink && termsModal && closeTermsModal) {
+  termsLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    const lang = localStorage.getItem('site-lang') || 'de';
+    showTermsModalForLang(lang);
+    termsModal.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+  });
+  closeTermsModal.addEventListener('click', function() {
+    termsModal.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+  });
+  termsModal.addEventListener('click', function(e) {
+    if (e.target === termsModal) {
+      termsModal.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+  });
+}
+
+function updateTermsModalLang(lang) {
+  if (termsModal && !termsModal.classList.contains('hidden')) {
+    showTermsModalForLang(lang);
+  }
+}
+
+// Cookies Policy modal logic
+const cookiesLink = document.getElementById('cookies-link');
+const cookiesModal = document.getElementById('cookies-modal');
+const closeCookiesModal = document.getElementById('close-cookies-modal');
+
+function showCookiesModalForLang(lang) {
+  document.querySelectorAll('.cookies-modal-content').forEach(el => el.classList.add('hidden'));
+  const block = document.querySelector('.cookies-modal-content[data-lang-content="' + lang + '"]');
+  if (block) block.classList.remove('hidden');
+}
+
+if (cookiesLink && cookiesModal && closeCookiesModal) {
+  cookiesLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    const lang = localStorage.getItem('site-lang') || 'de';
+    showCookiesModalForLang(lang);
+    cookiesModal.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+  });
+  closeCookiesModal.addEventListener('click', function() {
+    cookiesModal.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+  });
+  cookiesModal.addEventListener('click', function(e) {
+    if (e.target === cookiesModal) {
+      cookiesModal.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+  });
+}
+
+function updateCookiesModalLang(lang) {
+  if (cookiesModal && !cookiesModal.classList.contains('hidden')) {
+    showCookiesModalForLang(lang);
+  }
+}
+
+// Обновить модальное окно условий при смене языка
+const origSwitchLang2 = switchLang;
+switchLang = function(lang) {
+  origSwitchLang2(lang);
+  if (typeof updateTermsModalLang === 'function') updateTermsModalLang(lang);
+  if (typeof updatePrivacyModalLang === 'function') updatePrivacyModalLang(lang);
+  if (typeof updateFeaturedModalLang === 'function') updateFeaturedModalLang(lang);
+  if (typeof updatePortfolioModalLang === 'function') updatePortfolioModalLang(lang);
+  if (typeof updateCookiesModalLang === 'function') updateCookiesModalLang(lang);
+};
+</script>
+</body>
+</html>

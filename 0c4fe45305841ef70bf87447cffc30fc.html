@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from readdy.site/share/0c4fe45305841ef70bf87447cffc30fc by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 30 Apr 2025 19:23:04 GMT -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creative Studio - Design Digital Brands</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#007A74',secondary:'#F2EDE4'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+color: #222222;
+}
+.heading {
+font-family: 'Montserrat', sans-serif;
+font-weight: 700;
+}
+.service-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+.portfolio-item:hover .portfolio-overlay {
+opacity: 1;
+}
+input, textarea {
+outline: none;
+}
+input:focus, textarea:focus {
+border-color: #007A74;
+}
+.custom-checkbox {
+position: relative;
+cursor: pointer;
+}
+.custom-checkbox input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+}
+.checkmark {
+position: absolute;
+top: 0;
+left: 0;
+height: 20px;
+width: 20px;
+background-color: #fff;
+border: 2px solid #ddd;
+border-radius: 4px;
+}
+.custom-checkbox input:checked ~ .checkmark {
+background-color: #007A74;
+border-color: #007A74;
+}
+.checkmark:after {
+content: "";
+position: absolute;
+display: none;
+}
+.custom-checkbox input:checked ~ .checkmark:after {
+display: block;
+}
+.custom-checkbox .checkmark:after {
+left: 6px;
+top: 2px;
+width: 5px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+</style>
+</head>
+<body class="bg-white">
+<!-- Header -->
+<header class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm z-50 border-b border-gray-100">
+<div class="container mx-auto px-6 py-4 flex items-center justify-between">
+<span class="font-['Pacifico'] text-2xl text-primary">logo</span>
+<nav class="hidden md:flex items-center space-x-8">
+<a href="#services" class="text-gray-800 hover:text-primary font-medium transition-colors">Services</a>
+<a href="#portfolio" class="text-gray-800 hover:text-primary font-medium transition-colors">Portfolio</a>
+<a href="#testimonials" class="text-gray-800 hover:text-primary font-medium transition-colors">Testimonials</a>
+<a href="#contact" class="text-gray-800 hover:text-primary font-medium transition-colors">Contact</a>
+</nav>
+<a href="#contact" class="hidden md:block bg-primary text-white px-6 py-2.5 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Get in Touch</a>
+<button class="md:hidden w-10 h-10 flex items-center justify-center">
+<i class="ri-menu-line text-xl"></i>
+</button>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative pt-24 md:pt-0 overflow-hidden" style="background-image: url('https://via.placeholder.com/1600x900?text=Background'); background-size: cover; background-position: center;">
+<div class="absolute inset-0 bg-white/60 backdrop-blur-sm"></div>
+<div class="container mx-auto px-6 py-20 md:py-32 relative z-10">
+<div class="max-w-3xl">
+<h1 class="heading text-4xl md:text-5xl lg:text-6xl uppercase tracking-tight mb-6 leading-tight">WE DESIGN<br>DIGITAL BRANDS</h1>
+<p class="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl">We craft exceptional digital experiences that elevate your brand, connect with your audience, and drive business growth.</p>
+</div>
+</div>
+</section>
+<!-- Featured Project Card -->
+<section class="py-20 container mx-auto px-6">
+<div class="bg-white rounded-xl shadow-lg overflow-hidden max-w-5xl mx-auto">
+<div class="flex flex-col md:flex-row">
+<div class="md:w-7/12 relative overflow-hidden h-64 md:h-auto">
+<img src="https://via.placeholder.com/800x600?text=Project+Image" alt="Featured Project" class="w-full h-full object-cover object-top">
+</div>
+<div class="md:w-5/12 p-8 md:p-10 flex flex-col justify-center">
+<div class="mb-4">
+<span class="text-sm font-medium text-primary uppercase tracking-wider">Featured Project</span>
+</div>
+<h3 class="heading text-2xl mb-3">Elysian Luxury Rebrand</h3>
+<p class="text-gray-600 mb-6">A complete digital transformation for a premium lifestyle brand, including website redesign, brand identity, and digital strategy.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Grid -->
+<section id="services" class="py-20 bg-gray-50">
+<div class="container mx-auto px-6">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<h2 class="heading text-3xl md:text-4xl mb-4">Our Services</h2>
+<p class="text-gray-600">We offer comprehensive design solutions to help your business stand out in the digital landscape.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Service 1 -->
+<div class="service-card bg-white p-8 rounded-lg shadow-sm transition-all duration-300">
+<div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+<i class="ri-layout-4-line text-primary text-2xl"></i>
+</div>
+<h3 class="heading text-xl mb-3">Web Design</h3>
+<p class="text-gray-600">Custom-designed websites that are visually stunning, responsive, and optimized for conversion.</p>
+</div>
+<!-- Service 2 -->
+<div class="service-card bg-white p-8 rounded-lg shadow-sm transition-all duration-300">
+<div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+<i class="ri-smartphone-line text-primary text-2xl"></i>
+</div>
+<h3 class="heading text-xl mb-3">UI/UX Design</h3>
+<p class="text-gray-600">Intuitive user interfaces and seamless experiences that delight your customers and drive engagement.</p>
+</div>
+<!-- Service 3 -->
+<div class="service-card bg-white p-8 rounded-lg shadow-sm transition-all duration-300">
+<div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+<i class="ri-palette-line text-primary text-2xl"></i>
+</div>
+<h3 class="heading text-xl mb-3">Brand Identity</h3>
+<p class="text-gray-600">Comprehensive brand systems that communicate your values and connect with your audience.</p>
+</div>
+<!-- Service 4 -->
+<div class="service-card bg-white p-8 rounded-lg shadow-sm transition-all duration-300">
+<div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+<i class="ri-pen-nib-line text-primary text-2xl"></i>
+</div>
+<h3 class="heading text-xl mb-3">Logo Design</h3>
+<p class="text-gray-600">Distinctive and memorable logos that capture the essence of your brand and stand the test of time.</p>
+</div>
+<!-- Service 5 -->
+<div class="service-card bg-white p-8 rounded-lg shadow-sm transition-all duration-300">
+<div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+<i class="ri-box-3-line text-primary text-2xl"></i>
+</div>
+<h3 class="heading text-xl mb-3">Packaging</h3>
+<p class="text-gray-600">Eye-catching packaging designs that enhance product appeal and create memorable unboxing experiences.</p>
+</div>
+<!-- Service 6 -->
+<div class="service-card bg-white p-8 rounded-lg shadow-sm transition-all duration-300">
+<div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+<i class="ri-lightbulb-line text-primary text-2xl"></i>
+</div>
+<h3 class="heading text-xl mb-3">Creative Strategy</h3>
+<p class="text-gray-600">Strategic planning and creative direction to help your brand achieve its business objectives.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Portfolio Section -->
+<section id="portfolio" class="py-20">
+<div class="container mx-auto px-6">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<h2 class="heading text-3xl md:text-4xl mb-4">Our Portfolio</h2>
+<p class="text-gray-600">Explore our recent projects and see how we've helped brands transform their digital presence.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Portfolio Item 1 -->
+<div class="portfolio-item relative rounded-lg overflow-hidden group">
+<img src="https://via.placeholder.com/600x450?text=Project+Image" alt="Fashion Website" class="w-full h-80 object-cover object-top">
+<div class="portfolio-overlay absolute inset-0 bg-primary/80 flex flex-col justify-end p-6 opacity-0 transition-opacity duration-300">
+<h3 class="text-white text-xl font-semibold mb-1">Lumière Fashion</h3>
+<p class="text-white/80 mb-4">Web Design & Brand Identity</p>
+<a href="#" class="text-white border border-white/30 px-4 py-2 !rounded-button inline-block hover:bg-white hover:text-primary transition-colors whitespace-nowrap w-fit">View Project</a>
+</div>
+</div>
+<!-- Portfolio Item 2 -->
+<div class="portfolio-item relative rounded-lg overflow-hidden group">
+<img src="https://via.placeholder.com/600x450?text=Project+Image" alt="Packaging Design" class="w-full h-80 object-cover object-top">
+<div class="portfolio-overlay absolute inset-0 bg-primary/80 flex flex-col justify-end p-6 opacity-0 transition-opacity duration-300">
+<h3 class="text-white text-xl font-semibold mb-1">Serene Skincare</h3>
+<p class="text-white/80 mb-4">Packaging & Brand Identity</p>
+<a href="#" class="text-white border border-white/30 px-4 py-2 !rounded-button inline-block hover:bg-white hover:text-primary transition-colors whitespace-nowrap w-fit">View Project</a>
+</div>
+</div>
+<!-- Portfolio Item 3 -->
+<div class="portfolio-item relative rounded-lg overflow-hidden group">
+<img src="https://via.placeholder.com/600x450?text=Project+Image" alt="Mobile App Design" class="w-full h-80 object-cover object-top">
+<div class="portfolio-overlay absolute inset-0 bg-primary/80 flex flex-col justify-end p-6 opacity-0 transition-opacity duration-300">
+<h3 class="text-white text-xl font-semibold mb-1">Nova Finance</h3>
+<p class="text-white/80 mb-4">UI/UX & Mobile App Design</p>
+<a href="#" class="text-white border border-white/30 px-4 py-2 !rounded-button inline-block hover:bg-white hover:text-primary transition-colors whitespace-nowrap w-fit">View Project</a>
+</div>
+</div>
+<!-- Portfolio Item 4 -->
+<div class="portfolio-item relative rounded-lg overflow-hidden group">
+<img src="https://via.placeholder.com/600x450?text=Project+Image" alt="Logo Design" class="w-full h-80 object-cover object-top">
+<div class="portfolio-overlay absolute inset-0 bg-primary/80 flex flex-col justify-end p-6 opacity-0 transition-opacity duration-300">
+<h3 class="text-white text-xl font-semibold mb-1">Artisan Collective</h3>
+<p class="text-white/80 mb-4">Logo Design & Brand Identity</p>
+<a href="#" class="text-white border border-white/30 px-4 py-2 !rounded-button inline-block hover:bg-white hover:text-primary transition-colors whitespace-nowrap w-fit">View Project</a>
+</div>
+</div>
+<!-- Portfolio Item 5 -->
+<div class="portfolio-item relative rounded-lg overflow-hidden group">
+<img src="https://via.placeholder.com/600x450?text=Project+Image" alt="E-commerce Website" class="w-full h-80 object-cover object-top">
+<div class="portfolio-overlay absolute inset-0 bg-primary/80 flex flex-col justify-end p-6 opacity-0 transition-opacity duration-300">
+<h3 class="text-white text-xl font-semibold mb-1">Meridian Home</h3>
+<p class="text-white/80 mb-4">E-commerce & Web Design</p>
+<a href="#" class="text-white border border-white/30 px-4 py-2 !rounded-button inline-block hover:bg-white hover:text-primary transition-colors whitespace-nowrap w-fit">View Project</a>
+</div>
+</div>
+<!-- Portfolio Item 6 -->
+<div class="portfolio-item relative rounded-lg overflow-hidden group">
+<img src="https://via.placeholder.com/600x450?text=Project+Image" alt="Food Packaging" class="w-full h-80 object-cover object-top">
+<div class="portfolio-overlay absolute inset-0 bg-primary/80 flex flex-col justify-end p-6 opacity-0 transition-opacity duration-300">
+<h3 class="text-white text-xl font-semibold mb-1">Harvest Organics</h3>
+<p class="text-white/80 mb-4">Packaging & Brand Strategy</p>
+<a href="#" class="text-white border border-white/30 px-4 py-2 !rounded-button inline-block hover:bg-white hover:text-primary transition-colors whitespace-nowrap w-fit">View Project</a>
+</div>
+</div>
+</div>
+<div class="text-center mt-12">
+<a href="#" class="inline-block border-2 border-gray-800 text-gray-800 px-8 py-3 !rounded-button font-medium hover:bg-gray-800 hover:text-white transition-colors whitespace-nowrap">View All Projects</a>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section id="testimonials" class="py-20 bg-gray-50">
+<div class="container mx-auto px-6">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<h2 class="heading text-3xl md:text-4xl mb-4">Client Testimonials</h2>
+<p class="text-gray-600">Hear what our clients have to say about working with our creative studio.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Testimonial 1 -->
+<div class="bg-white p-8 rounded-lg shadow-sm">
+<div class="flex items-center mb-6">
+<div class="w-14 h-14 rounded-full overflow-hidden mr-4">
+<img src="https://via.placeholder.com/100x100?text=Client" alt="Client" class="w-full h-full object-cover object-top">
+</div>
+<div>
+<h4 class="font-semibold">Emily Richardson</h4>
+<p class="text-sm text-gray-600">Marketing Director, Lumière</p>
+</div>
+</div>
+<p class="text-gray-700 italic">"Working with this creative studio transformed our brand completely. Their attention to detail and strategic approach to design helped us connect with our target audience in ways we never thought possible."</p>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-white p-8 rounded-lg shadow-sm">
+<div class="flex items-center mb-6">
+<div class="w-14 h-14 rounded-full overflow-hidden mr-4">
+<img src="https://via.placeholder.com/100x100?text=Client" alt="Client" class="w-full h-full object-cover object-top">
+</div>
+<div>
+<h4 class="font-semibold">Michael Donovan</h4>
+<p class="text-sm text-gray-600">CEO, Nova Finance</p>
+</div>
+</div>
+<p class="text-gray-700 italic">"The team delivered an exceptional app design that perfectly balances sophistication with usability. Our user engagement metrics have increased dramatically since the redesign."</p>
+</div>
+<!-- Testimonial 3 -->
+<div class="bg-white p-8 rounded-lg shadow-sm">
+<div class="flex items-center mb-6">
+<div class="w-14 h-14 rounded-full overflow-hidden mr-4">
+<img src="https://via.placeholder.com/100x100?text=Client" alt="Client" class="w-full h-full object-cover object-top">
+</div>
+<div>
+<h4 class="font-semibold">Sophia Martinez</h4>
+<p class="text-sm text-gray-600">Founder, Serene Skincare</p>
+</div>
+</div>
+<p class="text-gray-700 italic">"The packaging design they created for our product line exceeded all expectations. We've received countless compliments from customers about how premium and distinctive our brand feels."</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section id="contact" class="py-20">
+<div class="container mx-auto px-6">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<h2 class="heading text-3xl md:text-4xl mb-4">Get in Touch</h2>
+<p class="text-gray-600">Ready to start your project? Contact us to discuss how we can help bring your vision to life.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<!-- Contact Form -->
+<div class="bg-white p-8 rounded-lg shadow-sm">
+<form>
+<div class="mb-6">
+<label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+<input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary" placeholder="Your name">
+</div>
+<div class="mb-6">
+<label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+<input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary" placeholder="Your email">
+</div>
+<div class="mb-6">
+<label for="service" class="block text-sm font-medium text-gray-700 mb-2">Service Interested In</label>
+<div class="relative">
+<select id="service" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary appearance-none pr-8">
+<option value="" selected disabled>Select a service</option>
+<option value="web-design">Web Design</option>
+<option value="ui-ux">UI/UX Design</option>
+<option value="brand-identity">Brand Identity</option>
+<option value="logo-design">Logo Design</option>
+<option value="packaging">Packaging</option>
+<option value="creative-strategy">Creative Strategy</option>
+</select>
+<div class="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+<i class="ri-arrow-down-s-line text-gray-400"></i>
+</div>
+</div>
+</div>
+<div class="mb-6">
+<label for="message" class="block text-sm font-medium text-gray-700 mb-2">Your Message</label>
+<textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary" placeholder="Tell us about your project"></textarea>
+</div>
+<div class="mb-6">
+<label class="custom-checkbox flex items-center">
+<input type="checkbox" class="hidden">
+<span class="checkmark"></span>
+<span class="ml-7 text-sm text-gray-600">I agree to the privacy policy and terms of service</span>
+</label>
+</div>
+<button type="submit" class="w-full bg-primary text-white py-3.5 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Send Message</button>
+</form>
+</div>
+<!-- Contact Info & Map -->
+<div>
+<div class="bg-white p-8 rounded-lg shadow-sm mb-8">
+<h3 class="heading text-xl mb-6">Contact Information</h3>
+<div class="space-y-4">
+<div class="flex items-start">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1">
+<i class="ri-map-pin-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium">Our Location</h4>
+<p class="text-gray-600">123 Design Avenue, Creative District<br>New York, NY 10001</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1">
+<i class="ri-mail-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium">Email Us</h4>
+<p class="text-gray-600">hello@creativestudio.com<br>projects@creativestudio.com</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1">
+<i class="ri-phone-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium">Call Us</h4>
+<p class="text-gray-600">+1 (212) 555-7890<br>+1 (212) 555-7891</p>
+</div>
+</div>
+</div>
+</div>
+<div class="rounded-lg overflow-hidden h-[300px] relative" style="background-image: url('https://via.placeholder.com/800x300?text=Map'); background-size: cover; background-position: center;"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-100 pt-16 pb-8">
+<div class="container mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+<!-- Column 1 -->
+<div>
+<span class="font-['Pacifico'] text-2xl text-primary block mb-4">logo</span>
+<p class="text-gray-600 mb-6">We create exceptional digital experiences that elevate brands and connect with audiences.</p>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+<i class="ri-instagram-line"></i>
+</a>
+<a href="#" class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+<i class="ri-twitter-x-line"></i>
+</a>
+<a href="#" class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+<i class="ri-linkedin-line"></i>
+</a>
+<a href="#" class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+<i class="ri-behance-line"></i>
+</a>
+</div>
+</div>
+<!-- Column 2 -->
+<div>
+<h4 class="heading text-lg mb-4">Services</h4>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Web Design</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary transition-colors">UI/UX Design</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Brand Identity</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Logo Design</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Packaging</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Creative Strategy</a></li>
+</ul>
+</div>
+<!-- Column 3 -->
+<div>
+<h4 class="heading text-lg mb-4">Company</h4>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-600 hover:text-primary transition-colors">About Us</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Our Work</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Team</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Careers</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Blog</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Contact</a></li>
+</ul>
+</div>
+<!-- Column 4 -->
+<div>
+<h4 class="heading text-lg mb-4">Newsletter</h4>
+<p class="text-gray-600 mb-4">Subscribe to our newsletter for design insights and inspiration.</p>
+<form class="flex">
+<input type="email" placeholder="Your email" class="flex-1 px-4 py-2 border border-gray-300 rounded-l focus:border-primary border-r-0">
+<button type="submit" class="bg-primary text-white px-4 py-2 rounded-r hover:bg-opacity-90 transition-colors whitespace-nowrap">Subscribe</button>
+</form>
+</div>
+</div>
+<div class="pt-8 border-t border-gray-200">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-600 text-sm mb-4 md:mb-0">© 2025 Creative Studio. All rights reserved.</p>
+<div class="flex space-x-6 text-gray-600 text-sm">
+<span>Privacy Policy</span>
+<span>Terms of Service</span>
+<span>Cookies Policy</span>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Checkbox functionality
+const checkboxes = document.querySelectorAll('.custom-checkbox input[type="checkbox"]');
+checkboxes.forEach(checkbox => {
+checkbox.addEventListener('change', function() {
+const checkmark = this.nextElementSibling;
+if (this.checked) {
+checkmark.classList.add('bg-primary', 'border-primary');
+} else {
+checkmark.classList.remove('bg-primary', 'border-primary');
+}
+});
+});
+});
+</script>
+</body>
+</html>

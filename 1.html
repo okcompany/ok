@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creative Studio - Design Digital Brands</title>
+<link rel="icon" type="image/png" href="logo/ok.png" sizes="32x32">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#007A74',
+        secondary: '#F2EDE4'
+      },
+      borderRadius: {
+        'none': '0px',
+        'sm': '4px',
+        DEFAULT: '8px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '20px',
+        '2xl': '24px',
+        '3xl': '32px',
+        'full': '9999px',
+        'button': '8px'
+      }
+    }
+  }
+};
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+body {
+    font-family: 'Inter', sans-serif;
+    color: #222222;
+    zoom: 0.85; /* Масштаб по умолчанию 85% */
+}
+.heading {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+.service-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+.portfolio-item:hover .portfolio-overlay {
+opacity: 1;
+}
+input, textarea {
+outline: none;
+}
+input:focus, textarea:focus {
+border-color: #007A74;
+}
+.custom-checkbox {
+position: relative;
+cursor: pointer;
+}
+.custom-checkbox input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+}
+.checkmark {
+position: absolute;
+top: 0;
+left: 0;
+height: 20px;
+width: 20px;
+background-color: #fff;
+border: 2px solid #ddd;
+border-radius: 4px;
+}
+.custom-checkbox input:checked ~ .checkmark {
+background-color: #007A74;
+border-color: #007A74;
+}
+.checkmark:after {
+content: "";
+position: absolute;
+display: none;
+}
+.custom-checkbox input:checked ~ .checkmark:after {
+display: block;
+}
+.custom-checkbox .checkmark:after {
+left: 6px;
+top: 2px;
+width: 5px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+</style>
+</head>
+<body class="bg-white">
+<!-- Header -->
+<header class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm z-50 border-b border-gray-100">
+  <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+    <!-- Логотип с иконкой и слоганом -->
+    <span class="flex items-center space-x-2 mb-0">
+      <img src="logo/ok.png" alt="logo" style="width:32px; height:32px; object-fit:contain; display:inline-block; vertical-align:middle;">
+      <span 
+        id="slogan"
+        data-ru="Марка, сайт, упаковка — всё говорит на одном языке"
+        data-en="Brand, website, packaging – everything speaks the same language"
+        data-de="Marke, Website, Verpackung – alles spricht dieselbe Sprache"
+        style="font-family: 'Montserrat', sans-serif; font-weight:600; font-size:13px; color:#007A74; line-height:1.2;">
+        Marke, Website, Verpackung – alles spricht dieselbe Sprache
+      </span>
+    </span>
+    <nav class="hidden md:flex items-center space-x-8">
+      <a href="#services" class="text-gray-800 hover:text-primary font-medium transition-colors"
+         data-ru="Услуги" data-en="Services" data-de="Leistungen">Services</a>
+      <a href="#portfolio" class="text-gray-800 hover:text-primary font-medium transition-colors"
+         data-ru="Портфолио" data-en="Portfolio" data-de="Portfolio">Portfolio</a>
+      <a href="#contact" class="text-gray-800 hover:text-primary font-medium transition-colors"
+         data-ru="Контакты" data-en="Contact" data-de="Kontakt">Contact</a>
+      <a href="#contact" class="bg-primary text-white px-6 py-2.5 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap ml-4"
+         data-ru="Связаться" data-en="Get in Touch" data-de="Schreib uns">Get in Touch</a>
+      <!-- Переключатель языков под кнопкой "Связаться" -->
+      <div class="flex flex-col items-center ml-4 mt-2" id="lang-switcher" style="min-width: 180px;">
+        <div class="flex">
+          <button class="lang-btn w-14 px-0 py-1 rounded text-sm border border-gray-300 hover:bg-primary hover:text-white transition-colors mx-0.5" data-lang="de">DE</button>
+          <button class="lang-btn w-14 px-0 py-1 rounded text-sm border border-gray-300 hover:bg-primary hover:text-white transition-colors mx-0.5" data-lang="en">EN</button>
+          <button class="lang-btn w-14 px-0 py-1 rounded text-sm border border-gray-300 hover:bg-primary hover:text-white transition-colors mx-0.5" data-lang="ru">RU</button>
+        </div>
+      </div>
+    </nav>
+    <button class="md:hidden w-10 h-10 flex items-center justify-center">
+      <i class="ri-menu-line text-xl"></i>
+    </button>
+  </div>
+</header>
+<!-- Hero Section -->
+<section class="relative pt-24 md:pt-0 overflow-hidden" style="background-image: url('https://via.placeholder.com/1600x900.webp?text=Background'); background-size: cover; background-position: center;">
+  <div class="absolute inset-0 bg-white/60 backdrop-blur-sm"></div>
+  <div class="container mx-auto px-6 py-20 md:py-32 relative z-10 flex flex-col md:flex-row items-center justify-between">
+    <div class="max-w-3xl">
+      <h1 id="hero-title" 
+          class="heading text-4xl md:text-5xl lg:text-6xl uppercase tracking-tight mb-6 leading-tight text-[#e53935]"
+          data-ru="МЫ СОЗДАЁМ ЦИФРОВЫЕ БРЕНДЫ"
+          data-en="WE DESIGN DIGITAL BRANDS"
+          data-de="WIR GESTALTEN DIGITALE MARKEN">
+        WE DESIGN DIGITAL BRANDS
+      </h1>
+      <p class="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl"
+         data-ru="Мы создаём исключительный цифровой опыт, который поднимает ваш бренд, соединяет с аудиторией и способствует росту бизнеса."
+         data-en="We craft exceptional digital experiences that elevate your brand, connect with your audience, and drive business growth."
+         data-de="Wir schaffen außergewöhnliche digitale Erlebnisse, die Ihre Marke stärken, Ihre Zielgruppe ansprechen und das Wachstum fördern.">
+        We craft exceptional digital experiences that elevate your brand, connect with your audience, and drive business growth.
+      </p>
+    </div>
+    <div class="flex-shrink-0 flex items-center justify-end w-full md:w-auto mt-10 md:mt-0">
+      <img src="logo/heater2.webp" alt="Hero Image" style="width:576px; max-width:90vw; height:auto; object-fit:contain; display:block;">
+    </div>
+  </div>
+</section>
+<!-- Services Section -->
+<section id="services" class="py-20 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h2 class="heading text-3xl md:text-4xl mb-4"
+          data-ru="Услуги"
+          data-en="Services"
+          data-de="Leistungen">Services</h2>
+      <p class="text-gray-600"
+         data-ru="Комплексные решения для вашего бренда: от стратегии до реализации."
+         data-en="Comprehensive solutions for your brand: from strategy to execution."
+         data-de="Ganzheitliche Lösungen für Ihre Marke: von der Strategie bis zur Umsetzung.">
+        Comprehensive solutions for your brand: from strategy to execution.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="service-card bg-white rounded-lg p-8 shadow hover:shadow-lg transition">
+        <div class="text-primary text-3xl mb-4"><i class="ri-lightbulb-flash-line"></i></div>
+        <h3 class="heading text-xl mb-2"
+            data-ru="Брендинг"
+            data-en="Branding"
+            data-de="Branding">Branding</h3>
+        <p class="text-gray-600"
+           data-ru="Разработка фирменного стиля, логотипа и визуальной айдентики."
+           data-en="Brand identity, logo and visual style development."
+           data-de="Markenidentität, Logo und visuelles Design.">
+          Brand identity, logo and visual style development.
+        </p>
+      </div>
+      <div class="service-card bg-white rounded-lg p-8 shadow hover:shadow-lg transition">
+        <div class="text-primary text-3xl mb-4"><i class="ri-layout-4-line"></i></div>
+        <h3 class="heading text-xl mb-2"
+            data-ru="Веб-дизайн"
+            data-en="Web Design"
+            data-de="Webdesign">Web Design</h3>
+        <p class="text-gray-600"
+           data-ru="Современные сайты, интернет-магазины и лендинги."
+           data-en="Modern websites, e-commerce and landing pages."
+           data-de="Moderne Websites, E-Commerce und Landingpages.">
+          Modern websites, e-commerce and landing pages.
+        </p>
+      </div>
+      <div class="service-card bg-white rounded-lg p-8 shadow hover:shadow-lg transition">
+        <div class="text-primary text-3xl mb-4"><i class="ri-smartphone-line"></i></div>
+        <h3 class="heading text-xl mb-2"
+            data-ru="UI/UX дизайн"
+            data-en="UI/UX Design"
+            data-de="UI/UX Design">UI/UX Design</h3>
+        <p class="text-gray-600"
+           data-ru="Проектирование интерфейсов и пользовательского опыта."
+           data-en="Interface and user experience design."
+           data-de="Interface- und Nutzererlebnis-Design.">
+          Interface and user experience design.
+        </p>
+      </div>
+      <div class="service-card bg-white rounded-lg p-8 shadow hover:shadow-lg transition">
+        <div class="text-primary text-3xl mb-4"><i class="ri-box-3-line"></i></div>
+        <h3 class="heading text-xl mb-2"
+            data-ru="Упаковка"
+            data-en="Packaging"
+            data-de="Verpackung">Packaging</h3>
+        <p class="text-gray-600"
+           data-ru="Дизайн упаковки и этикеток для вашей продукции."
+           data-en="Packaging and label design for your products."
+           data-de="Verpackungs- und Etikettendesign für Ihre Produkte.">
+          Packaging and label design for your products.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Featured Project Card -->
+<section class="py-20 container mx-auto px-6">
+  <div class="bg-white rounded-xl shadow-lg overflow-hidden max-w-5xl mx-auto cursor-pointer group" id="featured-project-trigger">
+    <div class="flex flex-col md:flex-row">
+      <div class="md:w-7/12 flex items-stretch">
+        <img src="logo/kw.png" alt="Featured Project" class="w-full h-64 md:h-auto object-contain min-h-[256px] bg-white pointer-events-none">
+      </div>
+      <div class="md:w-5/12 p-8 md:p-10 flex flex-col justify-center">
+        <div class="mb-4">
+          <span class="text-sm font-medium text-primary uppercase tracking-wider"
+                data-ru="Избранный проект"
+                data-en="Featured Project"
+                data-de="Ausgewähltes Projekt">Featured Project</span>
+        </div>
+        <h3 class="heading text-2xl mb-3"
+            data-ru="Сайт Kreuztaler Werkstatt"
+            data-en="Website Kreuztaler Werkstatt"
+            data-de="Website Kreuztaler Werkstatt">Website Kreuztaler Werkstatt</h3>
+        <p class="text-gray-600 mb-6"
+           data-ru="Разработан современный, адаптивный веб-сайт для автосервиса с фокусом на удобство клиента, онлайн-запись и эффективное управление заявками через административную панель."
+           data-en="A modern, responsive website for a car service center focused on customer convenience, online booking, and efficient request management via an admin panel."
+           data-de="Eine moderne, responsive Website für eine Autowerkstatt mit Fokus auf Kundenzufriedenheit, Online-Terminbuchung und effizienter Auftragsverwaltung über ein Admin-Panel.">
+          A modern, responsive website for a car service center focused on customer convenience, online booking, and efficient request management via an admin panel.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Модальное окно Featured Project -->
+<div id="featured-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
+  <div class="bg-white rounded-xl shadow-xl max-w-2xl w-full mx-4 relative p-6 md:p-10 overflow-y-auto max-h-[90vh]">
+    <button id="close-featured-modal" class="absolute top-4 right-4 text-gray-400 hover:text-primary text-2xl" aria-label="Закрыть">
+      &times;
+    </button>
+    <!-- Контент на разных языках -->
+    <div data-lang-content="ru" class="lang-modal-content">
+      <div class="text-2xl font-bold mb-2">🌐 Сайт компании Kreuztaler Werkstatt GmbH</div>
+      <div class="mb-4 text-primary font-semibold">📌 Описание проекта</div>
+      <div class="mb-4">
+        Разработан современный, адаптивный веб-сайт для автосервиса с фокусом на:<br>
+        <ul class="list-disc pl-5 mt-2 mb-2">
+          <li>удобство клиента,</li>
+          <li>онлайн-запись на услуги,</li>
+          <li>эффективное управление заявками через административную панель,</li>
+          <li>интеграцию мгновенных сообщений в Telegram о новых записях клиентов.</li>
+        </ul>
+        <div class="mb-2 font-semibold">Пример уведомления в Telegram:</div>
+        <pre class="bg-gray-100 rounded p-3 text-xs overflow-x-auto mb-2">Новая заявка!  
+Имя: Иван Иванов  
+E-Mail: ivan@example.com  
+Телефон: +7 999 123-45-67  
+Услуга: Замена масла  
+Дата: 2025-06-18  
+Время: 11:00  
+Сообщение: Дополнительно проверьте, пожалуйста, работу кондиционера</pre>
+      </div>
+      <div class="mb-2 font-semibold">🔧 Основной функционал</div>
+      <div class="mb-2"><span class="font-semibold">🖥️ Рекламный раздел</span>
+        <ul class="list-disc pl-5">
+          <li>Визуально привлекательная главная страница</li>
+          <li>Подробное описание услуг</li>
+          <li>Преимущества компании</li>
+          <li>Отзывы клиентов</li>
+          <li>Фотогалерея</li>
+        </ul>
+      </div>
+      <div class="mb-2"><span class="font-semibold">📅 Онлайн-запись</span>
+        <ul class="list-disc pl-5">
+          <li>Удобная форма записи на ремонт или обслуживание</li>
+          <li>Выбор услуги, даты и времени</li>
+          <li>Ввод контактных данных</li>
+          <li>Подтверждение и уведомления</li>
+        </ul>
+      </div>
+      <div class="mb-2"><span class="font-semibold">👤 Личный кабинет администратора</span>
+        <ul class="list-disc pl-5">
+          <li>Просмотр истории записей</li>
+          <li>Отправка напоминаний на почту клиентам</li>
+          <li>Возможность отмены или переноса записей</li>
+        </ul>
+      </div>
+      <div class="mb-2"><span class="font-semibold">🛠️ Административная панель</span>
+        <ul class="list-disc pl-5">
+          <li>Управление заявками</li>
+          <li>Управление услугами</li>
+          <li>Контроль загрузки специалистов</li>
+          <li>Отправка напоминаний клиентам</li>
+        </ul>
+      </div>
+      <div class="mb-2"><span class="font-semibold">📱 Адаптивный дизайн</span>
+        <ul class="list-disc pl-5">
+          <li>Корректное отображение сайта на: компьютерах, планшетах, смартфонах</li>
+        </ul>
+      </div>
+      <div class="mb-2"><span class="font-semibold">⚙️ Применённые технологии</span>
+        <div class="mb-1">Frontend: HTML5, CSS3, JavaScript (ES6+), React.js, Bootstrap / Material-UI</div>
+        <div class="mb-1">Backend: Python (Django или Flask)</div>
+        <div>Телеграм-уведомления: Интеграция через Telegram-бот</div>
+      </div>
+      <div class="mb-2 font-semibold">✅ Преимущества для клиентов и бизнеса</div>
+      <ul class="list-disc pl-5 mb-2">
+        <li>Онлайн-запись без необходимости звонков</li>
+        <li>Email-напоминания уменьшают количество неявок</li>
+        <li>Оптимизация загрузки сотрудников</li>
+        <li>Повышение качества обслуживания</li>
+        <li>Рост конкурентоспособности</li>
+      </ul>
+      <div class="mb-2 font-semibold">📈 Результат</div>
+      <div>
+        Цифровой инструмент, способствующий:<br>
+        привлечению новых клиентов,<br>
+        повышению лояльности,<br>
+        автоматизации ключевых бизнес-процессов автосервиса.
+      </div>
+    </div>
+    <div data-lang-content="en" class="lang-modal-content">
+      <div class="text-2xl font-bold mb-2">🌐 Website of Kreuztaler Werkstatt GmbH</div>
+      <div class="mb-4 text-primary font-semibold">📌 Project Description</div>
+      <div class="mb-4">
+        A modern, responsive website for a car service center focused on:<br>
+        <ul class="list-disc pl-5 mt-2 mb-2">
+          <li>customer convenience,</li>
+          <li>online booking for services,</li>
+          <li>efficient request management via an admin panel,</li>
+          <li>integration of instant messages in Telegram about new client bookings.</li>
+        </ul>
+        <div class="mb-2 font-semibold">Example of a Telegram notification:</div>
+        <pre class="bg-gray-100 rounded p-3 text-xs overflow-x-auto mb-2">New request!  
+Name: John Doe  
+E-Mail: john@example.com  
+Phone: +1 999 123-45-67  
+Service: Oil change  
+Date: 2025-06-18  
+Time: 11:00  
+Message: Please also check the air conditioning</pre>
+      </div>
+      <div class="mb-2 font-semibold">🔧 Main Features</div>
+      <div class="mb-2"><span class="font-semibold">🖥️ Promotional Section</span>
+        <ul class="list-disc pl-5">
+          <li>Visually appealing homepage</li>
+          <li>Detailed description of services</li>
+          <li>Company advantages</li>
+          <li>Customer reviews</li>
+          <li>Photo gallery</li>
+        </ul>
+      </div>
+      <div class="mb-2"><span class="font-semibold">📅 Online Booking</span>
+        <ul class="list-disc pl-5">
+          <li>Convenient form for booking repairs or services</li>
+          <li>Selection of service, date, and time</li>
+          <li>Entering contact details</li>
+          <li>Confirmation and notifications</li>
+        </ul>
+      </div>
+      <div class="mb-2"><span class="font-semibold">👤 Admin Personal Account</span>
+        <ul class="list-disc pl-5">
+          <li>Viewing booking history</li>
+          <li>Sending email reminders to clients</li>
+          <li>Ability to cancel or reschedule bookings</li>
+        </ul>
+      </div>
+      <div class="mb-2"><span class="font-semibold">🛠️ Admin Panel</span>
+        <ul class="list-disc pl-5">
+          <li>Request management</li>
+          <li>Service management</li>
+          <li>Specialist workload control</li>
+          <li>Sending reminders to clients</li>
+        </ul>
+      </div>
+      <div class="mb-2"><span class="font-semibold">📱 Responsive Design</span>
+        <ul class="list-disc pl-5">
+          <li>Correct display of the site on: computers, tablets, smartphones</li>
+        </ul>
+      </div>
+      <div class="mb-2"><span class="font-semibold">⚙️ Applied Technologies</span>
+        <div class="mb-1">Frontend: HTML5, CSS3, JavaScript (ES6+), React.js, Bootstrap / Material-UI</div>
+        <div class="mb-1">Backend: Python (Django or Flask)</div>
+        <div>Telegram notifications: Integration via Telegram bot</div>
+      </div>
+      <div class="mb-2 font-semibold">✅ Benefits for Clients and Business</div>
+      <ul class="list-disc pl-5 mb-2">
+        <li>Online booking without the need for calls</li>
+        <li>Email reminders reduce no-shows</li>
+        <li>Optimization of employee workload</li>
+        <li>Improvement of service quality</li>
+        <li>Increase in competitiveness</li>
+      </ul>
+      <div class="mb-2 font-semibold">📈 Result</div>
+      <div>
+        A digital tool that contributes to:<br>
+        attracting new clients,<br>
+        increasing loyalty,<br>
+        automating key business processes of the car service center.
+      </div>
+    </div>
+    <div data-lang-content="de" class="lang-modal-content">
+      <div class="text-2xl font-bold mb-2">🌐 Website der Kreuztaler Werkstatt GmbH</div>
+      <div class="mb-4 text-primary font-semibold">📌 Projektbeschreibung</div>
+      <div class="mb-4">
+        Eine moderne, responsive Website für eine Autowerkstatt mit Fokus auf:<br>
+        <ul class="list-disc pl-5 mt-2 mb-2">
+          <li>Kundenzufriedenheit,</li>
+          <li>Online-Terminbuchung für Dienstleistungen,</li>
+          <li>effiziente Auftragsverwaltung über ein Admin-Panel,</li>
+          <li>Integration von Sofortnachrichten in Telegram über neue Kundenbuchungen.</li>
+        </ul>
+        <div class="mb-2 font-semibold">Beispiel einer Telegram-Benachrichtigung:</div>
+        <pre class="bg-gray-100 rounded p-3 text-xs overflow-x-auto mb-2">Neue Anfrage!  
+Name: John Doe  
+E-Mail: john@example.com  
+Telefon: +1 999 123-45-67  
+Dienstleistung: Ölwechsel  
+Datum: 2025-06-18  
+Uhrzeit: 11:00  
+Nachricht: Bitte überprüfen Sie auch die Klimaanlage</pre>
+      </div>
+      <div class="mb-2 font-semibold">🔧 Hauptfunktionen</div>
+      <div class="mb-2"><span class="font-semibold">🖥️ Werbebereich</span>
+        <ul class="list-disc pl-5">
+          <li>Optisch ansprechende Startseite</li>
+          <li>Detaillierte Beschreibung der Dienstleistungen</li>
+          <li>Unternehmensvorteile</li>
+          <li>Kundenbewertungen</li>
+          <li>Fotogalerie</li>
+        </ul>
+      </div>
+      <div class="mb-2"><span class="font-semibold">📅 Online-Terminbuchung</span>
+        <ul class="list-disc pl-5">
+          <li>Bequemes Formular zur Buchung von Reparaturen oder Dienstleistungen</li>
+          <li>Auswahl der Dienstleistung, des Datums und der Uhrzeit</li>
+          <li>Eingabe der Kontaktdaten</li>
+          <li>Bestätigung und Benachrichtigungen</li>
+        </ul>
+      </div>
+      <div class="mb-2"><span class="font-semibold">👤 Admin-Persönliches Konto</span>
+        <ul class="list-disc pl-5">
+          <li>Ansicht der Buchungshistorie</li>
+          <li>Versand von E-Mail-Erinnerungen an Kunden</li>
+          <li>Möglichkeit zur Stornierung oder Verschiebung von Buchungen</li>
+        </ul>
+      </div>
+      <div class="mb-2"><span class="font-semibold">🛠️ Admin-Panel</span>
+        <ul class="list-disc pl-5">
+          <li>Auftragsverwaltung</li>
+          <li>Verwaltung der Dienstleistungen</li>
+          <li>Kontrolle der Auslastung der Spezialisten</li>
+          <li>Versand von Erinnerungen an Kunden</li>
+        </ul>
+      </div>
+      <div class="mb-2"><span class="font-semibold">📱 Responsives Design</span>
+        <ul class="list-disc pl-5">
+          <li>Korrekte Darstellung der Website auf: Computern, Tablets, Smartphones</li>
+        </ul>
+      </div>
+      <div class="mb-2"><span class="font-semibold">⚙️ Angewandte Technologien</span>
+        <div class="mb-1">Frontend: HTML5, CSS3, JavaScript (ES6+), React.js, Bootstrap / Material-UI</div>
+        <div class="mb-1">Backend: Python (Django oder Flask)</div>
+        <div>Telegram-Benachrichtigungen: Integration über Telegram-Bot</div>
+      </div>
+      <div class="mb-2 font-semibold">✅ Vorteile für Kunden und Unternehmen</div>
+      <ul class="list-disc pl-5 mb-2">
+        <li>Online-Terminbuchung ohne Anrufe</li>
+        <li>E-Mail-Erinnerungen reduzieren die Anzahl der Nichterscheinen</li>
+        <li>Optimierung der Mitarbeiterbelastung</li>
+        <li>Verbesserung der Servicequalität</li>
+        <li>Steigerung der Wettbewerbsfähigkeit</li>
+      </ul>
+      <div class="mb-2 font-semibold">📈 Ergebnis</div>
+      <div>
+        Ein digitales Werkzeug, das dazu beiträgt:<br>
+        neue Kunden zu gewinnen,<br>
+        die Loyalität zu steigern,<br>
+        die wichtigsten Geschäftsprozesse der Autowerkstatt zu automatisieren.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Portfolio Section -->
+<section id="portfolio" class="py-20 bg-white">
+  <div class="container mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h2 class="heading text-3xl md:text-4xl mb-4"
+          data-ru="Портфолио"
+          data-en="Our Portfolio"
+          data-de="Unser Portfolio">Our Portfolio</h2>
+      <p class="text-gray-600"
+         data-ru="Посмотрите наши последние проекты и узнайте, как мы помогли брендам преобразить их цифровое присутствие."
+         data-en="Explore our recent projects and see how we've helped brands transform their digital presence."
+         data-de="Entdecken Sie unsere aktuellen Projekte und sehen Sie, wie wir Marken bei der digitalen Transformation unterstützt haben.">
+        Explore our recent projects and see how we've helped brands transform their digital presence.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Portfolio Item: Kreuztaler Werkstatt -->
+      <div class="portfolio-item group relative rounded-lg overflow-hidden shadow hover:shadow-lg transition-shadow duration-300 bg-white">
+        <img src="logo/kw.png" alt="Kreuztaler Werkstatt" class="w-full h-80 object-contain bg-white transition-transform duration-300 group-hover:scale-105">
+        <div class="portfolio-overlay absolute inset-0 bg-primary/80 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <h3 class="text-white text-xl font-semibold mb-1"
+              data-ru="Kreuztaler Werkstatt"
+              data-en="Kreuztaler Werkstatt"
+              data-de="Kreuztaler Werkstatt">Kreuztaler Werkstatt</h3>
+          <p class="text-white/80 mb-4"
+             data-ru="Веб-дизайн и UI/UX дизайн"
+             data-en="Web Design & UI/UX Design"
+             data-de="Webdesign & UI/UX Design">Web Design & UI/UX Design</p>
+          <a href="https://my-flask-site-5pkl.onrender.com/" target="_blank" rel="noopener"
+             class="text-white border border-white/30 px-4 py-2 !rounded-button inline-block hover:bg-white hover:text-primary transition-colors whitespace-nowrap w-fit"
+             data-ru="Смотреть проект"
+             data-en="View Project"
+             data-de="Projekt ansehen">View Project</a>
+        </div>
+      </div>
+      <!-- Portfolio Item: Dermatologist Services -->
+      <div class="portfolio-item group relative rounded-lg overflow-hidden shadow hover:shadow-lg transition-shadow duration-300 bg-white">
+        <img src="logo/derma.png" alt="Dermatologist Services" class="w-full h-80 object-contain bg-white transition-transform duration-300 group-hover:scale-105">
+        <div class="portfolio-overlay absolute inset-0 bg-primary/80 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <h3 class="text-white text-xl font-semibold mb-1"
+              data-ru="Dermatologist Services"
+              data-en="Dermatologist Services"
+              data-de="Dermatologist Services">Dermatologist Services</h3>
+          <p class="text-white/80 mb-4"
+             data-ru="Веб-дизайн и айдентика"
+             data-en="Web Design & Brand Identity"
+             data-de="Webdesign & Markenidentität">Web Design & Brand Identity</p>
+          <a href="#" class="text-white border border-white/30 px-4 py-2 !rounded-button inline-block hover:bg-white hover:text-primary transition-colors whitespace-nowrap w-fit"
+             data-ru="Смотреть проект"
+             data-en="View Project"
+             data-de="Projekt ansehen">View Project</a>
+        </div>
+      </div>
+      <!-- Portfolio Item: Разработка упаковки клубники -->
+      <div class="portfolio-item group relative rounded-lg overflow-hidden shadow hover:shadow-lg transition-shadow duration-300 bg-white">
+        <img src="logo/stra.jpg" alt="Strawberry Packaging" class="w-full h-80 object-contain bg-white transition-transform duration-300 group-hover:scale-105">
+        <div class="portfolio-overlay absolute inset-0 bg-primary/80 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <h3 class="text-white text-xl font-semibold mb-1"
+              data-ru="Разработка упаковки клубники"
+              data-en="Strawberry Packaging Design"
+              data-de="Erdbeer Verpackungsdesign">Разработка упаковки клубники</h3>
+          <p class="text-white/80 mb-4"
+             data-ru="Веб-дизайн и айдентика"
+             data-en="Web Design & Brand Identity"
+             data-de="Webdesign & Markenidentität">Web Design & Brand Identity</p>
+          <a href="#" class="text-white border border-white/30 px-4 py-2 !rounded-button inline-block hover:bg-white hover:text-primary transition-colors whitespace-nowrap w-fit"
+             data-ru="Смотреть проект"
+             data-en="View Project"
+             data-de="Projekt ansehen">View Project</a>
+        </div>
+      </div>
+      <!-- Portfolio Item: Разработка этикетки для томатов -->
+      <div class="portfolio-item group relative rounded-lg overflow-hidden shadow hover:shadow-lg transition-shadow duration-300 bg-white">
+        <img src="logo/tomat.jpg" alt="Tomato Label Design" class="w-full h-80 object-contain bg-white transition-transform duration-300 group-hover:scale-105">
+        <div class="portfolio-overlay absolute inset-0 bg-primary/80 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <h3 class="text-white text-xl font-semibold mb-1"
+              data-ru="Разработка этикетки для томатов"
+              data-en="Tomato Label Design"
+              data-de="Tomaten Etikettendesign">Разработка этикетки для томатов</h3>
+          <p class="text-white/80 mb-4"
+             data-ru="Айдентика и упаковка"
+             data-en="Brand Identity & Packaging"
+             data-de="Markenidentität & Verpackung">Brand Identity & Packaging</p>
+          <a href="#" class="text-white border border-white/30 px-4 py-2 !rounded-button inline-block hover:bg-white hover:text-primary transition-colors whitespace-nowrap w-fit"
+             data-ru="Смотреть проект"
+             data-en="View Project"
+             data-de="Projekt ansehen">View Project</a>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-12">
+      <a href="#" class="inline-block border-2 border-gray-800 text-gray-800 px-8 py-3 !rounded-button font-medium hover:bg-gray-800 hover:text-white transition-colors whitespace-nowrap"
+         data-ru="Смотреть все проекты"
+         data-en="View All Projects"
+         data-de="Alle Projekte ansehen">View All Projects</a>
+    </div>
+  </div>
+</section>
+
+<!-- Contact/Message Form Section -->
+<section id="contact" class="py-20 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <div class="max-w-7xl mx-auto"> <!-- Увеличено с max-w-6xl до max-w-7xl -->
+      <div class="text-center mb-12">
+        <h2 class="heading text-3xl md:text-4xl mb-4"
+            data-ru="Хотите начать проект?"
+            data-en="Ready to start a project?"
+            data-de="Bereit für ein Projekt?">Хотите начать проект?</h2>
+        <p class="text-gray-600"
+           data-ru="Расскажите нам о своих целях, и мы поможем воплотить их в жизнь. Заполните форму ниже — мы свяжемся с вами в ближайшее время."
+           data-en="Tell us about your goals and we’ll help you bring them to life. Fill out the form below and we’ll get in touch soon."
+           data-de="Erzählen Sie uns von Ihren Zielen und wir helfen Ihnen, sie zu verwirklichen. Füllen Sie das Formular aus und wir melden uns bald.">
+          Расскажите нам о своих целях, и мы поможем воплотить их в жизнь. Заполните форму ниже — мы свяжемся с вами в ближайшее время.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto"> <!-- gap-12 и max-w-5xl для большей ширины -->
+        <!-- Форма -->
+        <form class="bg-white p-10 rounded-lg shadow w-full"> <!-- p-10 для большего внутреннего отступа -->
+          <label for="contact-name" class="block text-sm font-medium text-gray-700 mb-2"
+                 data-ru="Ваше имя" data-en="Full Name" data-de="Ihr Name">Ваше имя</label>
+          <input type="text" id="contact-name" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary mb-4"
+                 placeholder="Ваше имя"
+                 data-ru-placeholder="Ваше имя"
+                 data-en-placeholder="Your name"
+                 data-de-placeholder="Ihr Name">
+
+          <label for="contact-email" class="block text-sm font-medium text-gray-700 mb-2"
+                 data-ru="Электронная почта" data-en="Email Address" data-de="E-Mail-Adresse">Электронная почта</label>
+          <input type="email" id="contact-email" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary mb-4"
+                 placeholder="Ваш email"
+                 data-ru-placeholder="Ваш email"
+                 data-en-placeholder="Your email"
+                 data-de-placeholder="Ihre E-Mail">
+
+          <label for="contact-message" class="block text-sm font-medium text-gray-700 mb-2"
+                 data-ru="Ваше сообщение" data-en="Your Message" data-de="Ihre Nachricht">Ваше сообщение</label>
+          <textarea id="contact-message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary mb-4"
+                    placeholder="Расскажите о вашем проекте"
+                    data-ru-placeholder="Расскажите о вашем проекте"
+                    data-en-placeholder="Tell us about your project"
+                    data-de-placeholder="Erzählen Sie uns von Ihrem Projekt"></textarea>
+
+          <button type="submit"
+                  class="w-full bg-primary text-white py-3.5 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap"
+                  data-ru="Отправить сообщение"
+                  data-en="Send Message"
+                  data-de="Nachricht senden">
+            Отправить сообщение
+          </button>
+        </form>
+        <!-- Контактная информация -->
+        <div class="bg-white p-10 rounded-lg shadow w-full flex flex-col justify-center"> <!-- p-10 для большего внутреннего отступа -->
+          <h3 class="heading text-xl mb-6"
+              data-ru="Контактная информация"
+              data-en="Contact Information"
+              data-de="Kontaktinformationen">Контактная информация</h3>
+          <div class="space-y-6">
+            <div>
+              <h4 class="font-medium mb-1"
+                  data-ru="Наш адрес"
+                  data-en="Our Location"
+                  data-de="Unsere Adresse">Наш адрес</h4>
+              <p class="text-gray-600"
+                 data-ru="123 Дизайн Авеню, Креативный район<br>Нью-Йорк, NY 10001"
+                 data-en="123 Design Avenue, Creative District<br>New York, NY 10001"
+                 data-de="123 Design Avenue, Kreativviertel<br>New York, NY 10001">
+                123 Дизайн Авеню, Креативный район<br>Нью-Йорк, NY 10001
+              </p>
+            </div>
+            <div>
+              <h4 class="font-medium mb-1"
+                  data-ru="Почта"
+                  data-en="Email Us"
+                  data-de="E-Mail">Почта</h4>
+              <a href="mailto:hello@studio.com"
+                 class="text-primary hover:underline"
+                 data-ru="hello@studio.com"
+                 data-en="hello@studio.com"
+                 data-de="hello@studio.com">hello@studio.com</a>
+            </div>
+            <div>
+              <h4 class="font-medium mb-1"
+                  data-ru="Телефон"
+                  data-en="Call Us"
+                  data-de="Telefon">Телефон</h4>
+              <a href="tel:+1234567890"
+                 class="text-primary hover:underline"
+                 data-ru="+1 234 567 890"
+                 data-en="+1 234 567 890"
+                 data-de="+1 234 567 890">+1 234 567 890</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-primary text-white py-8 mt-20">
+  <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
+    <div class="mb-4 md:mb-0">
+      <span class="font-bold text-lg">Creative Studio</span>
+      <span class="ml-2 text-sm opacity-80">&copy; 2025</span>
+    </div>
+    <div class="flex space-x-6">
+      <a href="#" class="hover:text-secondary transition-colors" aria-label="Instagram"><i class="ri-instagram-line text-2xl"></i></a>
+      <a href="#" class="hover:text-secondary transition-colors" aria-label="Telegram"><i class="ri-telegram-line text-2xl"></i></a>
+      <a href="#" class="hover:text-secondary transition-colors" aria-label="Behance"><i class="ri-behance-line text-2xl"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function setActiveLangBtn(lang) {
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    if (btn.dataset.lang === lang) {
+      btn.classList.add('bg-primary', 'text-white');
+      btn.classList.remove('border-gray-300');
+    } else {
+      btn.classList.remove('bg-primary', 'text-white');
+      btn.classList.add('border-gray-300');
+    }
+  });
+}
+
+function switchLang(lang) {
+  document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+    el.textContent = el.getAttribute('data-' + lang);
+  });
+  document.querySelectorAll('[data-' + lang + '-placeholder]').forEach(el => {
+    el.setAttribute('placeholder', el.getAttribute('data-' + lang + '-placeholder'));
+  });
+  document.querySelectorAll('select').forEach(select => {
+    Array.from(select.options).forEach(option => {
+      if (option.hasAttribute('data-' + lang)) {
+        option.textContent = option.getAttribute('data-' + lang);
+      }
+    });
+  });
+  setActiveLangBtn(lang);
+  localStorage.setItem('site-lang', lang);
+
+  // Обновить текст hero-title
+  const h1 = document.getElementById('hero-title');
+  if (h1 && h1.dataset[lang]) {
+    h1.textContent = h1.dataset[lang];
+  }
+  // Обновить модальное окно Featured Project
+  if (typeof updateFeaturedModalLang === 'function') {
+    updateFeaturedModalLang(lang);
+  }
+}
+
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const lang = this.dataset.lang;
+    switchLang(lang);
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const savedLang = localStorage.getItem('site-lang') || 'de';
+  switchLang(savedLang);
+});
+
+// Модальное окно Featured Project
+const modal = document.getElementById('featured-modal');
+const trigger = document.getElementById('featured-project-trigger');
+const closeBtn = document.getElementById('close-featured-modal');
+
+function showModalForLang(lang) {
+  document.querySelectorAll('.lang-modal-content').forEach(el => el.classList.add('hidden'));
+  const block = document.querySelector('.lang-modal-content[data-lang-content="' + lang + '"]');
+  if (block) block.classList.remove('hidden');
+}
+
+if (trigger && modal && closeBtn) {
+  trigger.addEventListener('click', () => {
+    const lang = localStorage.getItem('site-lang') || 'de';
+    showModalForLang(lang);
+    modal.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+  });
+  closeBtn.addEventListener('click', () => {
+    modal.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+  });
+  modal.addEventListener('click', e => {
+    if (e.target === modal) {
+      modal.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+  });
+}
+
+function updateFeaturedModalLang(lang) {
+  if (!modal.classList.contains('hidden')) {
+    showModalForLang(lang);
+  }
+}
+</script>
+</body>
+</html>
