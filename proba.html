@@ -1,0 +1,35 @@
+<template>
+  <div class="todo-list">
+    <ul>
+      <li v-for="(todo, index) in todos" :key="index" :class="{ completed: todo.completed }">
+        <input type="checkbox" @click="toggleCompleted(todo)" />
+        {{ todo.text }}
+        <button @click="deleteTodo(todo)">Удалить</button>
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      todos: [
+        { text: 'Написать пример', completed: false },
+        { text: 'Добавить комментарии', completed: true }
+      ]
+    };
+  },
+  methods: {
+    toggleCompleted(todo) {
+      todo.completed = !todo.completed;
+    },
+    deleteTodo(todo) {
+      const index = this.todos.indexOf(todo);
+      if (index !== -1) {
+        this.todos.splice(index, 1);
+      }
+    }
+  }
+}
+</script>
